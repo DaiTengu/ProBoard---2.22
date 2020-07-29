@@ -519,7 +519,7 @@ void new_files( char *data )
         << S_SEARCHING_FOR_NEW_FILES( form( "%d %s %4d",
                                             cmpdate[ 0 ],
                                             months_short[ cmpdate[ 1 ] ],
-                                            cmpdate[ 2 ]  +  1900 ) )
+                                            cmpdate[ 2 ]  +  2000 ) )
 
                                             // Y2K LOOKS OKAY FOR 4-DIGIT
         << "\n\n\xFF";

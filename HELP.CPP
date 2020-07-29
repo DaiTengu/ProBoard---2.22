@@ -200,7 +200,7 @@ void toggle_userinfo()
   //           win  <<  form( "%02d %3s %04d at %02d:%02d:%02d",
   //                          user.lastdate[ 0 ],
   //                          months_short[ user.lastdate[ 1 ] ],
-  //                          user.lastdate[ 2 ]  +  1900,       // Y2K FIX!
+  //                          user.lastdate[ 2 ]  +  2000,       // Y2K FIX!
   //                          user.lasttime[ 0 ],
   //                          user.lasttime[ 1 ],
   //                          user.lasttime[ 2 ] );

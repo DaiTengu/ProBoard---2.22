@@ -277,7 +277,7 @@ void mailcheck( char *data )
                     io  <<  form( "     \7* \3%-12s \7-\2 %02d %3s %4d\3 \7- ",
                                   (char *) fn,pvtfil.date[ 0 ],
                                   months_short[ pvtfil.date[ 1 ] ],
-                                  pvtfil.date[ 2 ]  +  1900 );        // Y2K OKAY
+                                  pvtfil.date[ 2 ]  +  2000 );        // Y2K OKAY
 
                     io  <<  S_PERSONAL_FILE_FROM( pvtfil.from ) 
                         <<  '\n';

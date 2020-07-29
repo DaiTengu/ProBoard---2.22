@@ -6,9 +6,9 @@
 
 #ifdef SOFTWARE_EXPIRE
 
-  #define EXPIRE_YEAR  2000
-  #define EXPIRE_MONTH 9
-  #define EXPIRE_DAY   1
+  #define EXPIRE_YEAR  4000
+  #define EXPIRE_MONTH 12
+  #define EXPIRE_DAY   31
 
   #define PORT_VALUE   10
 

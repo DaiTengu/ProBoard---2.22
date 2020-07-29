@@ -252,7 +252,7 @@ void update_display()
                                   "[%d-%s-%04d] [%02d:%02d-%02d:%02d]",
                                   lastcaller.date[ 0 ],
                                   months_short[ lastcaller.date[ 1 ] ],
-                                  lastcaller.date[ 2 ]  +  1900,
+                                  lastcaller.date[ 2 ]  +  2000,
                                   lastcaller.timeIn [ 0 ],
                                   lastcaller.timeIn [ 1 ],
                                   lastcaller.timeOut[ 0 ],
@@ -272,7 +272,7 @@ void update_display()
                              "[DOB: %02d-%s-%04d]   [Time used today: %ld]   [Kbytes DL today: %d]",
                              user.birthDate[ 0 ],
                              months_short[ user.birthDate[ 1 ] ],
-                             user.birthDate[ 2 ]  +  1900,
+                             user.birthDate[ 2 ]  +  2000,
                              long( user.timeUsed + timer.used() ),
                              user.kbToday );
 
