@@ -55,7 +55,7 @@ void usereditor( char * )
                         rec.timesCalled,
                         rec.lastDate[ 0 ],
                         months_short[ rec.lastDate[ 1 ] ],
-                        rec.lastDate[ 2 ]  +  1900,
+                        rec.lastDate[ 2 ]  +  2000,
                         rec.lastTime[ 0 ],
                         rec.lastTime[ 1 ],
                         rec.lastTime[ 2 ] );

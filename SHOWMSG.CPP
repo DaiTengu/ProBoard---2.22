@@ -106,7 +106,7 @@ if(msgArea->msgKind == MSG_NET)
    rip_send( form( "!|1UCS0RFA130000<>%d %s %04d<>|1UFK0RH8130000<>%02d:%02d<>\n",
                    postDate[ 0 ],
                    months_short[ postDate[ 1 ] ],
-                   postDate[ 2 ] + 1900,          // Y2K FIX!
+                   postDate[ 2 ] + 2000,          // Y2K FIX!
                    postTime[ 0 ], 
                    postTime[ 1 ] ) );
 
@@ -120,7 +120,7 @@ if(msgArea->msgKind == MSG_NET)
            rip_send( form( "!|1UCS15FA1H0000<>%d %s %04d<>|1UFK15H81H0000<>%02d:%02d<>\n",
                            recvDate[ 0 ],
                            months_short[ recvDate[ 1 ] ],
-                           recvDate[ 2 ] + 1900,       // Y2K FIX
+                           recvDate[ 2 ] + 2000,       // Y2K FIX
                            recvTime[ 0 ],
                            recvTime[ 1 ],
                            recvTime[ 2 ] ) );
@@ -166,7 +166,7 @@ if(msgArea->msgKind == MSG_NET)
                          form( "%2d %s %04d",
                                postDate[ 0 ],
                                months_short[ postDate[ 1 ] ],
-                               postDate[ 2 ] + 1900 ),      
+                               postDate[ 2 ] + 2000 ),      
 
                          form( "%02d:%02d",
                                postTime[ 0 ],

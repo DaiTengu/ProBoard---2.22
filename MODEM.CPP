@@ -391,7 +391,7 @@ do_modem(modem_response *response)
                                form( "- %02d %s %d ",
                                date[ 0 ],
                                months_short[ date[ 1 ] ],
-                               date[ 2 ]  +  1900 ) );      // Y2K OKAY!
+                               date[ 2 ]  +  2000 ) );      // Y2K OKAY!
 
                event_win.setPos(1,1);
 

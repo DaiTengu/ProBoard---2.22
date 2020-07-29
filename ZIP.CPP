@@ -160,7 +160,7 @@ Date d; d.fileDate(date);
 Time t; t.fileTime(time);
 
 strip_path(name);
-io << form("º\6 %-15s\7º\5 %02d %3.3s %04d \7º\2 %02d:%02d \7º\3 %8ld \7º\6 %8ld \7º\n",name,d[0],months_short[d[1]],d[2]+1900,t[0],t[1],usize,csize);
+io << form("º\6 %-15s\7º\5 %02d %3.3s %04d \7º\2 %02d:%02d \7º\3 %8ld \7º\6 %8ld \7º\n",name,d[0],months_short[d[1]],d[2]+2000,t[0],t[1],usize,csize);
 }
 
 static void near

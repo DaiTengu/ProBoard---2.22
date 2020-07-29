@@ -1,6 +1,6 @@
 #include <string.h>
-//#include <..\key20\pbkey.hpp>
-/*
+#include <..\key20\pbkey.hpp>
+
 void decompress_data(byte *input,byte *output,int insize,int outsize);
 
 static void
@@ -11,7 +11,7 @@ regis_read()
 
    if(!f.open(FileName(syspath,"REGKEY.PB")))
    {
-      registered = TRUE;
+      registered = FALSE;
 
       return;
    }
@@ -42,7 +42,7 @@ regis_read()
       || kf->xorCrc != crc32(kf->xorData , sizeof(kf->xorData))
      )
    {
-      registered = TRUE;
+      registered = FALSE;
 
       delete kf;
 
@@ -51,7 +51,7 @@ regis_read()
 
    if(kf->securityCheck[regSelectedTable] != calc_security(&kf->keyData[0] , regTable1 , regTable2))
    {
-      registered = TRUE;
+      registered = FALSE;
 
       delete kf;
 
@@ -72,7 +72,7 @@ regis_read()
 
       if(!count++) LOG("Key file expired!");
 
-      registered = TRUE;
+      registered = FALSE;
       return;
    }
 
@@ -82,4 +82,4 @@ regis_read()
       registered = FALSE;
 
   //if(VER_BETA < 0xF000 && ....) registered = FALSE;
-}*/
+}

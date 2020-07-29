@@ -56,7 +56,7 @@ void raw_dir( char *data )
                         f.size(),
                         d[ 0 ],
                         months_short[ d[ 1 ] ],
-                        d[ 2 ]  +  1900,          // Y2K OKAY!
+                        d[ 2 ]  +  2000,          // Y2K OKAY!
                         t[ 0 ],
                         t[ 1 ],
                         t[ 2 ] );
