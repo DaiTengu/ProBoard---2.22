@@ -5,14 +5,17 @@
 ## 100. The files FILES.C and FILES2.C in the RTL\CLIB directory should be
 ## recompiled using all memory models, and updated in C?.LIB
 
+# Set this to where the ProBoard Lib exists.
+PB_LIB  = ..\PBLIB
+# Set this to where the borland C++ compile is installed.
 BCDIR   = C:\BORLANDC
 LIBDIR  = $(BCDIR)\LIB
-PB_LIB  = ..\PBLIB
 
 ###################################################################################
 # You shouldn't have to touch things under here
 
 MODEL   = LARGE
+exists  = L
 OVERLAY = 1
 
 OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
@@ -32,12 +35,8 @@ OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        execheck.obj  language.obj  fuzzy.obj     terminal.obj  squish.obj   \
        hudson.obj msgbase.obj mark.obj rip.obj jam.obj inpdate.obj tag_rw.obj
 
-OBJS_NO = exec.obj io.obj fossil.obj menu.obj misc.obj timer.obj
-
-
-OVLOBJS = $(OBJS,Nexec\.obj,Nio\.obj,Nfossil\.obj,Ntimer\.obj,Nmisc\.obj)
+OBJS_NO = exec.obj fossil.obj io.obj menu.obj misc.obj timer.obj
 AFLAGS  = /o /mx /dMEM_MOD=$(MODEL)
-
 LIBS    = $(PB_LIB)\pblib_L.lib $(PB_LIB)\tslib_l.lib $(PB_LIB)\SQSH_L.LIB $(PB_LIB)\TSWIN_L.LIB
 TSLIB   = 1
 TSWIN   = 1
@@ -54,25 +53,26 @@ PBLIB   = 1
 all: proboard.exe
 
 clean:
-	-del *.rsp
+	-del *.obj
 	-del proboard.exe
 
-pblibs.rsp: $(LIBS)
-		-del $<
-	    &echo $?+ >> $<
-	    echo CL.LIB+ >> $<
-	    echo OVERLAY.LIB >> $<
+io.obj: io.cpp
+	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
 
-pbobjsno.rsp: $(OBJS_NO)
-		-del $<
-	    &echo $?+ >> $<
+menu.obj: menu.cpp
+	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
 
-pbobjs.rsp: $(OBJS) $(OBJS_NO)
-		-del $<
-	    &echo $?+ >> $<
-	    #type pbobjsno.rsp >> $<
-	    echo c0L.obj >> $<
+misc.obj: misc.cpp
+	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
 
-ProBoard.exe: pblibs.rsp pbobjs.rsp
-       tlink /c @pbobjs.rsp,$<,,@pblibs.rsp /L$(LIBDIR)
-       #bcc -ml -L\PBLIB -L$(LIBDIR) $(OBJS) $(LIBS)
+timer.obj: timer.cpp
+	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
+
+
+ProBoard.exe: $(OBJS_NO) $(OBJS)
+	tlink /c /x /L$(LIBDIR) @&&^
+	c0l $(OBJS_NO) /o $(OBJS) /o-
+$*
+nul
+emu mathl overlay cl $(LIBS) 
+^ 
