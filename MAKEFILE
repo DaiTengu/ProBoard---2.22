@@ -81,11 +81,11 @@ PBLIB   = 1
 all: mc.cfg proboard.exe
 
 help:
-  echo Usage: 
-  echo
-  echo MAKE [MODEL=LARGE] [BC_DIR=C:\BORLANDC] [PB_LIB=..\PBLIB]
-  echo
-  echo Set the values for model, bc_dir, and pb_lib if they are not the defaults.
+  @echo Usage: 
+  @echo.
+  @echo MAKE [MODEL=LARGE] [BC_DIR=C:\BORLANDC] [PB_LIB=..\PBLIB]
+  @echo.
+  @echo Set the values for model, bc_dir, and pb_lib if they are not the defaults.
 
 clean:
 	-del *.obj
