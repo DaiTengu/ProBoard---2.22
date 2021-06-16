@@ -6,17 +6,40 @@
 ## recompiled using all memory models, and updated in C?.LIB
 
 # Set this to where the ProBoard Lib exists.
-PB_LIB  = ..\PBLIB
+#PB_LIB  = ..\PBLIB
 # Set this to where the borland C++ compile is installed.
-BCDIR   = C:\BORLANDC
-LIBDIR  = $(BCDIR)\LIB
+#BC_DIR   = C:\BORLANDC
 
 ###################################################################################
 # You shouldn't have to touch things under here
 
+# If we don't know where BC 3.1 is installed, then pick where make.exe lives.
+!if !$d(BC_DIR) 
+BC_DIR   = $(MAKEDIR)\..
+BC_BIN   = $(MAKEDIR)
+!else
+BC_BIN   = $(BC_DIR)\BIN
+!endif
+
+!if !$d(PB_LIB)
+# default to ..\pblib
+PB_LIB   = ..\PBLIB
+!endif
+
+!if !$d(MODEL)
+# Large, always large more likely
 MODEL   = LARGE
-exists  = L
+EXT     = L
+!endif
 OVERLAY = 1
+
+LIBDIR  = $(BC_DIR)\LIB
+BCC     = $(BC_BIN)\bcc.exe
+TASM    = $(BC_BIN)\tasm.exe
+# Unclear why BCC make is braindead on these defaults (they use TASM not $(TASM))
+CC      = $(BCC)
+AS      = $(TASM)
+TLINK   = $(BC_BIN)\tlink.exe
 
 OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        mailchk.obj   msg.obj       zip.obj      \
@@ -35,44 +58,61 @@ OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        execheck.obj  language.obj  fuzzy.obj     terminal.obj  squish.obj   \
        hudson.obj msgbase.obj mark.obj rip.obj jam.obj inpdate.obj tag_rw.obj
 
-OBJS_NO = exec.obj fossil.obj io.obj menu.obj misc.obj timer.obj
+OBJS_NO_OVL = exec.obj fossil.obj io.obj menu.obj misc.obj timer.obj
 AFLAGS  = /o /mx /dMEM_MOD=$(MODEL)
-LIBS    = $(PB_LIB)\pblib_L.lib $(PB_LIB)\tslib_l.lib $(PB_LIB)\SQSH_L.LIB $(PB_LIB)\TSWIN_L.LIB
+LIBS    = \
+ $(PB_LIB)\PBLIB_$(EXT).LIB \
+ $(PB_LIB)\SQSH_$(EXT).LIB \
+ $(PB_LIB)\TSLIB_$(EXT).LIB \
+ $(PB_LIB)\TSWIN_$(EXT).LIB
+INCLUDE_DIRS = $(BC_DIR)\INCLUDE;$(PB_LIB)\TSLIB;$(PB_LIB)\TSWIN;$(PB_LIB);$(PB_LIB)\SQUISH\INCLUDE
+ 
+ # Are these needed?? I doubt it
 TSLIB   = 1
 TSWIN   = 1
 SQUISH  = 1
 PBLIB   = 1
 
-.cpp.obj:
-       $(CC) @mc.cfg $(CPPFLAGS) /c $&.cpp
-.c.obj:
-       $(CC) @mc.cfg $(CFLAGS) /c $&.c
+.cpp.obj: 
+  $(CC) @mc.cfg $(CPPFLAGS) -Yo -c { $< }
 
 #----------------------------------------------------------------------------#
 
-all: proboard.exe
+all: mc.cfg proboard.exe
+
+help:
+  echo Usage: 
+  echo
+  echo MAKE [MODEL=LARGE] [BC_DIR=C:\BORLANDC] [PB_LIB=..\PBLIB]
+  echo
+  echo Set the values for model, bc_dir, and pb_lib if they are not the defaults.
 
 clean:
 	-del *.obj
 	-del proboard.exe
+  -del mc.cfg
 
+
+# Build the non-overlay versions specially.
 io.obj: io.cpp
-	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
+  $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
 menu.obj: menu.cpp
-	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
+  $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
 misc.obj: misc.cpp
-	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
+  $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
 timer.obj: timer.cpp
-	$(CC) -ml -Y -IC:\BORLANDC\INCLUDE;\PBLIB\TSLIB;\PBLIB\TSWIN;\PBLIB;\PBLIB\SQUISH\INCLUDE -X -c $&.cpp
+  $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
-
-ProBoard.exe: $(OBJS_NO) $(OBJS)
-	tlink /c /x /L$(LIBDIR) @&&^
-	c0l $(OBJS_NO) /o $(OBJS) /o-
+ProBoard.exe: $(OBJS_NO_OVL) $(OBJS)
+	$(TLINK) /c /x /L$(LIBDIR) @&&^
+	c0l $(OBJS_NO_OVL) /o $(OBJS) /o-
 $*
 nul
 emu mathl overlay cl $(LIBS) 
 ^ 
+
+mc.cfg: MAKEFILE
+  echo -ml -I$(INCLUDE_DIRS) -X > mc.cfg
