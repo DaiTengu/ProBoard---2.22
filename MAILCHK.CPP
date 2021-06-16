@@ -16,8 +16,8 @@ void mailcheck( char *data )
      bool     checkfiles  =  TRUE;
      int      num_para    =  parse_data( data, param );
 
-
-     for ( int i = 0;  i < num_para;  i++ )
+     int i;
+     for ( i = 0;  i < num_para;  i++ )
      {
           if ( param[ i ][ 0 ]  ==  '/' )
           {

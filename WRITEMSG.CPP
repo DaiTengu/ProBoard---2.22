@@ -120,8 +120,8 @@ if(!msg.to[0])
    if(tuser.search(msg.to,TRUE,FALSE,TRUE)) break;
 
    bool found = tuser.search(msg.to,FALSE,TRUE,FALSE);
-
-  for(int count = 0;found && count<2;count++)
+   int count;
+  for(count = 0;found && count<2;count++)
    found = tuser.searchNext();
 
   if(count==1)

@@ -634,8 +634,8 @@ JamMsgBase::appendMsg(Message& msg)
    if(f_txt.open("MSGTMP",fmode_read,512))
    {
       f_jdt.seek( j_hdr.offset );
-
-      for(int len = 0;;)
+      int len = 0;
+      for(;;)
       {
          int c = f_txt.readByte();
 
@@ -910,8 +910,8 @@ JamMsgBase::setLastRead(MsgArea& ma,long,long num)
    JamLastRead jlr;
 
    f_jlr.rewind();
-
-   for(long rec = 0 ;; rec++)
+   long rec;
+   for( rec = 0 ;; rec++)
    {
       if(f_jlr.read( &jlr , sizeof(JamLastRead) ) != sizeof(JamLastRead))
          break;

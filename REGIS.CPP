@@ -35,9 +35,13 @@
 //
 //##########################################################################
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <ctype.h>
+#include <stdio.h>
+#if (__BORLANDC__ >= 0x0500) && defined(min) && defined(max)
+// BC5 stdlib.h defines mix/max and chokes.
+#define __MINMAX_DEFINED
+#endif
+#include <stdlib.h>
 #include <string.h>
 
 #include <dos.h>

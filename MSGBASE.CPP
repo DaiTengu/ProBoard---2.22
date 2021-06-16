@@ -10,7 +10,8 @@ MsgBaseList::MsgBaseList()
 void
 MsgBaseList::add(MsgBase *mb)
 {
-    for(int i=0; mblist[i] ; i++) {}
+  int i;
+    for(i=0; mblist[i] ; i++) {}
 
     mblist[i] = mb;
     mblist[i+1] = NULL;

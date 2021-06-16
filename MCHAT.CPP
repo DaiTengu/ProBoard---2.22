@@ -64,7 +64,8 @@ chatdata::~chatdata()
 void
 chatdata::queue(char c)
 {
-   for(int i=0;i<MAX_LOCK_TRIES;i++)
+  int i;
+   for(i=0;i<MAX_LOCK_TRIES;i++)
    {
       if(f[0].lock(0,sizeof(*this))) break;
       msleep(LOCK_PAUSE);
@@ -90,7 +91,8 @@ chatdata::queue(char c)
 int
 chatdata::getnext(char *buffer)
 {
-   for(int i=0;i<MAX_LOCK_TRIES;i++)
+  int i;
+   for(i=0;i<MAX_LOCK_TRIES;i++)
    {
       if(f[1].lock(0,sizeof(*this))) break;
       msleep(LOCK_PAUSE);

@@ -24,7 +24,8 @@ set_msgarea(char *data)
 
    int npara = parse_data(data,param);
 
-   for(int i=0;i<npara;i++)
+   int i;
+   for(i=0;i<npara;i++)
    {
       param[i].upperCase();
 
@@ -94,7 +95,8 @@ set_msgarea(char *data)
 
       io.enablestop();
 
-      for(int i=1,count=0;i<=MsgArea::highAreaNum();i++)
+      int i, count;
+      for(i=1,count=0;i<=MsgArea::highAreaNum();i++)
       {
          String newmail = " ";
 
@@ -102,7 +104,8 @@ set_msgarea(char *data)
 
          if(group && !ma.allGroups)
          {
-            for(int g=0;g<4;g++)
+           int g;
+            for(g=0;g<4;g++)
             {
                if(ma.groups[g] == group)
                   break;
@@ -216,8 +219,8 @@ for(bool shown=FALSE;;shown=TRUE)
 
    linecounter(3);
    io.enablestop();
-
-   for(int i=1,count=0;i<=FileArea::highAreaNum();i++)
+   int count = 0;
+   for(int i=1;i<=FileArea::highAreaNum();i++)
      {
       if(!arealist[i] || !fa.read(i)) continue;
 
@@ -225,7 +228,8 @@ for(bool shown=FALSE;;shown=TRUE)
 
       if(group && !fa.allGroups)
       {
-         for(int g=0;g<4;g++)
+        int g;
+         for(g=0;g<4;g++)
          {
             if(fa.groups[g] == group)
                break;
@@ -274,7 +278,8 @@ select_filegroup(char *)
    linecounter(3);
    io.enablestop();
 
-   for(int i=1,count=0;;i++)
+   int count=0;
+   for(int i=1;;i++)
    {
       if(f.read(&group,sizeof(group)) != sizeof(group))
          break;
@@ -332,7 +337,8 @@ select_msggroup(char *)
    linecounter(3);
    io.enablestop();
 
-   for(int i=1,count=0;;i++)
+   int count=0;
+   for(int i=1;;i++)
    {
       if(f.read(&group,sizeof(group)) != sizeof(group))
          break;

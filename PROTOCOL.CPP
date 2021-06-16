@@ -11,8 +11,8 @@ select_protocol(protocol& p , char protocol_key , bool seldef)
    if(protocol_key == '\0')
    {
       s << S_PROTOCOL_MENU_TITLE << "\n\n";
-
-      for(int i=1 ; p.read(i) ; i++)
+      int i;
+      for(i=1 ; p.read(i) ; i++)
       {
          if(p.flags&PROT_ENABLED && !(io.baud>0 && (p.flags&PROT_LOCAL)))
          {

@@ -152,8 +152,8 @@ rip_send_icons()
       String *icons = new String[MAX_ICONS];
 
       DirScan dir(fn);
-
-      for(int i = 0 ; int(dir) && i<MAX_ICONS ; )
+      int i;
+      for(i = 0 ; int(dir) && i<MAX_ICONS ; )
       {
          if(!rip_icon_exists(dir))
          {

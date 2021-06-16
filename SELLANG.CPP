@@ -15,7 +15,8 @@ select_language(char *data)
 
    DirScan scan(FileName(syspath,"*.PBL"));
 
-   for(int i = 0; int(scan) ; scan++ , i<MAX_LANGUAGES)
+   int i;
+   for(i = 0; (int)scan ; scan++ , i<MAX_LANGUAGES)
    {
       if(String(scan.name()) == "_DEFAULT.PBL")
          continue;

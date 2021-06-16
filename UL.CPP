@@ -237,7 +237,7 @@ process_uploads(protocol& p , char *dir , LinkedList<String>& uploads , bool pvt
 
       DirScan scan(fullfn);
 
-      if(!int(scan))
+      if(!(int)scan)
       {
          uploads.remove();
 
@@ -430,7 +430,8 @@ process_uploads(protocol& p , char *dir , LinkedList<String>& uploads , bool pvt
 
          _PrivateFile pvt;
 
-         for(int rec=0;;rec++)
+         int rec;
+         for(rec=0;;rec++)
          {
             if(f.read(&pvt,sizeof(pvt))!=sizeof(pvt)) break;
 

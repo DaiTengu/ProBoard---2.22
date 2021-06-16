@@ -588,8 +588,8 @@ int login()
 		    word oldlevel = user.level;
 		    user.level    = user.expLevel;
 
-
-		    for ( int f = 1;  f <= 32;  f++ )
+				int f;
+		    for (f = 1;  f <= 32;  f++ )
 		    {
 			 if ( user.expFlagsOn.getflag( f ) )
 			 {
@@ -773,7 +773,7 @@ bool newuser( char *username )
 	  DirScan scan( FileName( syspath, "*.PBL" ) );
 
 
-	  for ( ;  int( scan );  scan++, num_languages++ )
+	  for ( ;  (int) scan;  scan++, num_languages++ )
 	  {
 	       if ( String(scan.name()) == "_DEFAULT.PBL")
 	       {

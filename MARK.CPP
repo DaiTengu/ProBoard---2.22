@@ -49,7 +49,8 @@ MarkedMsgList::add(MessageIndex& mi)
 bool
 MarkedMsgList::add(Message& msg)
 {
- return add(MessageIndex(msg.areaNum(),msg.id));
+  MessageIndex mi(msg.areaNum(), msg.id);
+ return add(mi);
 }
 
 bool
@@ -122,7 +123,8 @@ get_new_msgs(MarkedMsgList& marked,int area)
 
     while(ok)
       {
-       if(!marked.add(MessageIndex(msg.areaNum(),msg.id))) break;
+      MessageIndex mi(msg.areaNum(), msg.id);
+       if(!marked.add(mi)) break;
 
        io << '\b' << (("/-\\|")[cnt]) ;
 

@@ -3,14 +3,14 @@
 #include <dos.h>
 #include "proboard.hpp"
 
-const OFF     = 0;
-const ON      = 1;
-const TOGGLE  = 2;
-const ASK     = 3;
-const NONE    = 4;
-const SAVE    = 0x10;
-const RESTORE = 0x20;
-const QUIET   = 0x40;
+const int OFF     = 0;
+const int ON      = 1;
+const int TOGGLE  = 2;
+const int ASK     = 3;
+const int NONE    = 4;
+const int SAVE    = 0x10;
+const int RESTORE = 0x20;
+const int QUIET   = 0x40;
 
 static int _near
 toggle_type(char *data)
@@ -24,7 +24,8 @@ toggle_type(char *data)
 
  for(int i=0;i<num_para;i++)
    {
-    for(int j=0;strings[j];j++) if(param[i] == strings[j]) break;
+   int j;
+    for(j=0;strings[j];j++) if(param[i] == strings[j]) break;
     if(!strings[j]) continue;
 
     switch(j)

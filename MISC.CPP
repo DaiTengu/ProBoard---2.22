@@ -258,8 +258,8 @@ int check_access( unsigned    level,
           return 0;
      }
 
-
-     for ( int i = 1;  i <= 32;  i++ )
+     int i = 1;
+     for ( ;  i <= 32;  i++ )
      {
           if ( flags.getflag( i ) )
           {
@@ -414,8 +414,8 @@ void strip_path( char *s )
 {
      int l  =  strlen( s );
 
-     
-     for ( int i  =  l - 1;  i >= 0;  i-- )
+     int i;
+     for ( i  =  l - 1;  i >= 0;  i-- )
      {
           if ( s[ i ]  ==  '\\'  || 
                s[ i ]  ==  '/' ) 
@@ -457,7 +457,8 @@ void strip_fname( char *s )
 int parse_data( char   *s,
                 String *param )
 {
-     for ( int i = 0;  ;  i++ )
+  int i;
+     for ( i = 0;  ;  i++ )
      {
           int inquote = 0;
 
@@ -530,8 +531,8 @@ void adjust_limits()
           }
      }
 
-
-     for ( int n = -1;  ; )
+     int n;
+     for ( n = -1;  ; )
      {
           for ( i  =  num_limits - 1;  i >= 0;  i-- )
           {
@@ -826,8 +827,8 @@ char *dos_error_message( int errno )
           { 0, ""                                     }
      };
 
-
-     for ( int i = 0;  errmsg[ i ].no;  i++ )
+          int i;
+     for ( i = 0;  errmsg[ i ].no;  i++ )
      {
           if ( errno  ==  errmsg[ i ].no ) 
           {

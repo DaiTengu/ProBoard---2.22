@@ -240,8 +240,8 @@ void
 msglines::rebuild()
 {
 String tmpline[60];
-
-for(int i=0,l=0;i<n;i++)
+int i, l;
+for(i=0,l=0;i<n;i++)
   {
   String wrap;
   for(int j=0;j<line[i].len();j++)

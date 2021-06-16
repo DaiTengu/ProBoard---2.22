@@ -4,6 +4,7 @@
 
 % MODEL MEM_MOD
 
+IDEAL
 LOCALS @@
 
 PUBLIC _swapshell

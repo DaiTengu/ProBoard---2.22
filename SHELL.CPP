@@ -41,7 +41,8 @@ set_environment()
 
  int envlen = 1;       // Start with 1 (extra zero byte at end of table)
 
- for(int i=0;environ[i];i++) envlen += strlen(environ[i])+1;
+ int i;
+ for(i=0;environ[i];i++) envlen += strlen(environ[i])+1;
 
  if(alloc_ptr != NULL) free(alloc_ptr);
 
@@ -55,7 +56,6 @@ set_environment()
  eptr = (char far *)MK_FP(FP_SEG(eptr)+1,0);      // Make zero-offset pointer
 
  char _far *p = eptr;
-
  for(i=0;environ[i];i++)
    {
     memcpy(p,environ[i],strlen(environ[i])+1);
@@ -127,7 +127,8 @@ shell(char *data)
     //   case 'K': break;
          case 'L': {
                     String s(user.name);
-                    for(int i=0;i<s.len();i++) if(s[i]==' ') break;
+                    int i;
+                    for(i=0;i<s.len();i++) if(s[i]==' ') break;
                     commandline << (char *)(&s[i+1]);
                    }                                              break;
          case 'M': commandline << mypath;                         break;

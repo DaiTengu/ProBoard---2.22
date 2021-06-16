@@ -55,8 +55,8 @@ show_users_online(char *data)
    bool handles = FALSE;
 
    int npara = parse_data(data,param);
-
-   for(int i=0;i<npara && i<5;i++)
+   int i;
+   for(i=0;i<npara && i<5;i++)
    {
       if(param[i] == "/MC")
          mchat = TRUE;

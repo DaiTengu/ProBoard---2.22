@@ -20,6 +20,7 @@
 
 #include "proboard.hpp"
 #include "fossil.hpp"
+//#include "msgbase.hpp"
 
 static long _cdecl
 hook_l_mul(long,long v1,long v2)
@@ -1412,7 +1413,9 @@ hook_MarkMessage(long,int area,long msgnum)
 
  if(!ma.read(area)) return;
 
- markedmsglist.add(MessageIndex(area,msgnum));
+ MessageIndex mi(area, msgnum);
+ // BC5 doesn't like taking this inline for a non-const function
+ markedmsglist.add(mi);
 }
 
 static long _cdecl
@@ -1984,8 +1987,8 @@ run_sdkfile(char *data)
  FileName pexfullname;
 
  int npara = parse_data(data,param);
-
- for(int i=0;i<npara;i++)
+ int i;
+ for(i=0;i<npara;i++)
    {
     if(param[i][0] != '/') break;
 

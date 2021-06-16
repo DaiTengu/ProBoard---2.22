@@ -1,5 +1,6 @@
 % MODEL MEM_MOD
 
+IDEAL
 CODESEG
 
 ;PUBLIC __pex_dummy , __pex_set_pex_ds , __pex_set_pb_ds

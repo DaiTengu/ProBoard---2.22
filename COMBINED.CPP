@@ -28,8 +28,8 @@ combined_select(char *data)
       linecounter(4);
       io.enablestop();
 
-
-      for(int i=1,count=0;i<=MsgArea::highAreaNum() && i<=1000;i++)
+      int i, count;
+      for(i=1,count=0;i<=MsgArea::highAreaNum() && i<=1000;i++)
       {
          String checked = ' ';
 

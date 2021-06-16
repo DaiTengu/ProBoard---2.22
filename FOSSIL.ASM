@@ -1,5 +1,6 @@
 % MODEL MEM_MOD
 
+IDEAL 
 PUBLIC _fos_setbps
 PUBLIC _fos_init
 PUBLIC _fos_deinit

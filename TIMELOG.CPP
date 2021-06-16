@@ -29,7 +29,8 @@ if(lastdate!=Date(TODAY))
   {
    if(cfg.usage_days && numdays>=cfg.usage_days)
      {
-      for(int i=0;i<24;i++) hours[i] -= long(numdays-cfg.usage_days+1)*hours[i]/numdays;
+     int i;
+      for(i=0;i<24;i++) hours[i] -= long(numdays-cfg.usage_days+1)*hours[i]/numdays;
       for(i=0;i<7;i++)      days [i] -= long(numdays-cfg.usage_days+1)*days [i]/numdays;
       numdays = cfg.usage_days;
      }

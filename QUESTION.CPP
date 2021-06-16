@@ -135,237 +135,236 @@ void questionnaire( char *data )
                }
 
 
-               switch ( i )
+               switch (i)
                {
-                    case 0: 
+               case 0:
 
-                         char s[ 80 ];
-
-
-                         io.read( s,
-                                  atoi( param[ 1 ] ),
-                                  capitalise
-                                    ? READMODE_UPFIRST
-                                    : 0 );
-
-                         answers[ atoi( param[ 2 ] )  -  1 ]  =  s;
-
-                         io << '\n';
-
-                         break;
+                 char s[80];
 
 
-                    case 1: 
-                    
-                         io.color( atoi( param[ 1 ] ) ); 
+                 io.read(s,
+                   atoi(param[1]),
+                   capitalise
+                   ? READMODE_UPFIRST
+                   : 0);
 
-                         break;
+                 answers[atoi(param[2]) - 1] = s;
 
+                 io << '\n';
 
-                    case 2: 
-                    
-                         File f( aswfile,
-                                 fmode_write     | 
-                                   fmode_append  | 
-                                   fmode_copen   | 
-                                   fmode_text );
-                         
-                         
-                         if ( param[ 2 ][ 0 ] ) 
-                         {
-                              f  <<  form( "%s%s\n",
-                                           (char *) param[ 1 ],
-                                           (char *) answers[ atoi( param[ 2 ] )  -  1 ] );
-                         }
-                         else 
-                         {
-                              f  <<  form( "%s\n",
-                                           (char *) answers[ atoi( param[ 1 ] )  -  1 ] );
-                         }
-
-                    
-                         break;
+                 break;
 
 
-                    case 3: 
-                    {
-                         Date date( TODAY );
-                         Time time( NOW   );
-                         File f( aswfile, 
-                                 fmode_write     | 
-                                   fmode_append  | 
-                                   fmode_copen   | 
-                                   fmode_text );
+               case 1:
+
+                 io.color(atoi(param[1]));
+
+                 break;
 
 
-                         f  <<  form( "*** %s completed questionnaire at %02d:%02d on %02d-%s-%02d ***\n",
-                                      user.name,
-                                      time[ 0 ],
-                                      time[ 1 ],
-                                      date[ 0 ],
-                                      months_short[ date[ 1 ] ],
-                                      date[ 2 ] % 100 );    // Y2K FIXED          
-                                   // date[ 2 ] );          // Y2K BUG
-                    }
-                         break;
+               case 2: {
+
+                 File f(aswfile,
+                   fmode_write |
+                   fmode_append |
+                   fmode_copen |
+                   fmode_text);
 
 
-                    case 4: 
-                    
-                         return;
+                 if (param[2][0])
+                 {
+                   f << form("%s%s\n",
+                     (char*)param[1],
+                     (char*)answers[atoi(param[2]) - 1]);
+                 }
+                 else
+                 {
+                   f << form("%s\n",
+                     (char*)answers[atoi(param[1]) - 1]);
+                 }
 
 
-                    case 5: 
-                    
-                         int flag = -1;
+               }break;
 
 
-                         strupr( param[ 1 ] );
-                         
-                         
-                         if ( param[ 1 ][ 1 ]  >=  '1'  && 
-                              param[ 1 ][ 1 ]  <=  '8' )
-                         {
-                              switch ( param[ 1 ][ 0 ] )
-                              {
-                                   case 'A': 
-                                   
-                                        flag  =  param[ 1 ][ 1 ]  -  '1' + 1;  
-                                        break;
+               case 3:
+               {
+                 Date date(TODAY);
+                 Time time(NOW);
+                 File f(aswfile,
+                   fmode_write |
+                   fmode_append |
+                   fmode_copen |
+                   fmode_text);
 
 
-                                   case 'B': 
-                                   
-                                        flag  =  param[ 1 ][ 1 ]  -  '1' + 9;  
-                                        break;
+                 f << form("*** %s completed questionnaire at %02d:%02d on %02d-%s-%02d ***\n",
+                   user.name,
+                   time[0],
+                   time[1],
+                   date[0],
+                   months_short[date[1]],
+                   date[2] % 100);    // Y2K FIXED          
+                // date[ 2 ] );          // Y2K BUG
+               }
+               break;
 
 
-                                   case 'C': 
-                                   
-                                        flag  =  param[ 1 ][ 1 ]  -  '1' + 17; 
-                                        break;
+               case 4:
+
+                 return;
 
 
-                                   case 'D': 
-                                   
-                                        flag  =  param[ 1 ][ 1 ]  -  '1' + 25; 
-                                        break;
-                              }
-                         }
-                         else
-                         {
-                              if ( param[ 1 ][ 0 ]  >=  'A'  && 
-                                   param[ 1 ][ 0 ]  <=  'Z') 
-                              {
-                                   flag  =  param[ 1 ][ 0 ]  -  'A' + 1;
-                              }
+               case 5: {
+
+                 int flag = -1;
 
 
-                              if ( param[ 1 ][ 0 ]  >=  '1'  && 
-                                   param[ 1 ][ 0 ]  <=  '6' ) 
-                              {
-                                   flag  =  param[ 1 ][ 0 ]  -  '1' + 27;
-                              }
-                         }
+                 strupr(param[1]);
 
 
-                         if ( flag < 1  || 
-                              flag > 32 ) 
-                         {
-                              break;
-                         }
+                 if (param[1][1] >= '1' &&
+                   param[1][1] <= '8')
+                 {
+                   switch (param[1][0])
+                   {
+                   case 'A':
+
+                     flag = param[1][1] - '1' + 1;
+                     break;
 
 
-                         if ( param[ 2 ]  ==  "ON" )  
-                         {
-                              user.aFlags.setflag( flag );
-                         }
+                   case 'B':
+
+                     flag = param[1][1] - '1' + 9;
+                     break;
 
 
-                         if ( param[ 2 ]  ==  "OFF" ) 
-                         {
-                              user.aFlags.clearflag( flag );
-                         }
+                   case 'C':
+
+                     flag = param[1][1] - '1' + 17;
+                     break;
 
 
-                         updatemenu = TRUE;
-                    
-                         break;
+                   case 'D':
+
+                     flag = param[1][1] - '1' + 25;
+                     break;
+                   }
+                 }
+                 else
+                 {
+                   if (param[1][0] >= 'A' &&
+                     param[1][0] <= 'Z')
+                   {
+                     flag = param[1][0] - 'A' + 1;
+                   }
 
 
-                    case 6: 
-                    
-                         io.cls();
-                         break;
+                   if (param[1][0] >= '1' &&
+                     param[1][0] <= '6')
+                   {
+                     flag = param[1][0] - '1' + 27;
+                   }
+                 }
 
 
-                    case 7: 
-                    
-                         for ( int i = 0;  i  <  param[ 1 ].len();  i++ ) 
-                         {
-                              if ( param[ 1 ][ i ]  ==  '|' ) 
-                              {
-                                   param[ 1 ][ i ]  =  '\n';
-                              }
-                         }
+                 if (flag < 1 ||
+                   flag > 32)
+                 {
+                   break;
+                 }
 
 
-                         io  <<  param[ 1 ];
-                    
-                    
-                         break;
+                 if (param[2] == "ON")
+                 {
+                   user.aFlags.setflag(flag);
+                 }
 
 
-                    case 9: 
-                    
-                         if ( answers[ atoi( param[ 1 ] )  -  1 ]  ==  param[ 3 ] ) 
-                         {
-                              break;
-                         }
+                 if (param[2] == "OFF")
+                 {
+                   user.aFlags.clearflag(flag);
+                 }
 
 
-                         do
-                         {
-                              if ( ! qf.readLine( str, 299 ) ) 
-                              {
-                                   return;
-                              }
+                 updatemenu = TRUE;
+
+               } break;
 
 
-                              adjust_parms( str, param );
-                         } 
-                         while ( param[ 0 ]  !=  commands[ 8 ] );
-                    
+               case 6:
 
-                         break;
+                 io.cls();
+                 break;
 
 
-                    case 10: 
-                    
-                         char c  =  io.wait( param[ 1 ] );
+               case 7: {
+
+                 for (int i = 0; i < param[1].len(); i++)
+                 {
+                   if (param[1][i] == '|')
+                   {
+                     param[1][i] = '\n';
+                   }
+                 }
 
 
-                         answers[ atoi( param[ 2 ] )  -  1 ]  =  String( c );
-
-                         io << c 
-                            << '\n';
-                    
-                         break;
+                 io << param[1];
 
 
-                    case 11: 
-
-                         if ( param[ 1 ]  ==  "ON" ) 
-                         {
-                              capitalise = TRUE;
-                         }
-                         else 
-                         {
-                              capitalise = FALSE;
-                         }
+               }break;
 
 
-                         break;
+               case 9: {
+
+                 if (answers[atoi(param[1]) - 1] == param[3])
+                 {
+                   break;
+                 }
+
+
+                 do
+                 {
+                   if (!qf.readLine(str, 299))
+                   {
+                     return;
+                   }
+
+
+                   adjust_parms(str, param);
+                 } while (param[0] != commands[8]);
+
+
+               }break;
+
+
+               case 10: {
+
+                 char c = io.wait(param[1]);
+
+
+                 answers[atoi(param[2]) - 1] = String(c);
+
+                 io << c
+                   << '\n';
+
+               } break;
+
+
+               case 11:{
+
+                 if (param[1] == "ON")
+                 {
+                   capitalise = TRUE;
+                 }
+                 else
+                 {
+                   capitalise = FALSE;
+                 }
+
+
+               }break;
 
 
                     case 12: 

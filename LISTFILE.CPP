@@ -101,7 +101,8 @@ filelist_more()
 
          for(i=0;i<tagged.len();i++)
          {
-            for(int j=0; tag_chars[j] ; j++)
+           int j;
+            for(j=0; tag_chars[j] ; j++)
             {
                if(tagged[i] == tag_chars[j]) break;
             }
@@ -184,7 +185,8 @@ first_nonblank( char *line )
 
    if(is_whitespace(*line))
    {
-      for(int i=0 ; line[i] != '\0' && is_whitespace(line[i]) ; i++) {}
+     int i;
+      for(i=0 ; line[i] != '\0' && is_whitespace(line[i]) ; i++) {}
 
       f = line[i];
    }
@@ -326,7 +328,8 @@ keyword_search(char *data)
 
       if(group && !fa.allGroups)
       {
-         for(int g=0;g<4;g++)
+        int g;
+         for(g=0;g<4;g++)
          {
             if(fa.groups[g] == group)
                break;
@@ -572,7 +575,8 @@ void new_files( char *data )
           if ( group  && 
                ! fa.allGroups )
           {
-               for ( int g = 0;  g < 4;  g++ )
+            int g;
+               for ( g = 0;  g < 4;  g++ )
                {
                     if ( fa.groups[ g ]  ==  group )
                     {
@@ -602,8 +606,8 @@ void new_files( char *data )
 
           DirScan find( FileName( fa.filepath, "*.*" ) );
 
-
-          for ( int num_new = 0;  
+          int num_new;
+          for ( num_new = 0;  
           
                 int( find )  &&  
                 num_new < MAX_NEWFILES;
@@ -653,8 +657,8 @@ void new_files( char *data )
 
                     strupr( file );
 
-
-                    for ( int i = 0;  i < num_new;  i++ )
+                    int i;
+                    for ( i = 0;  i < num_new;  i++ )
                     {
                          if ( ! strcmp( newf[ i ].name,  file ))
                          {
@@ -808,7 +812,8 @@ filename_search(char *data)
 
       if(group && !fa.allGroups)
       {
-         for(int g=0;g<4;g++)
+        int g;
+         for(g=0;g<4;g++)
          {
             if(fa.groups[g] == group)
                break;

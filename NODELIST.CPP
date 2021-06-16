@@ -8,8 +8,8 @@ getnode(char *temp,node_entry& n)
 {
 char *options[]={"ZONE","REGION","HOST","HUB","PVT","DOWN","HOLD"};
 char slices[6][100];
-
-for(int i=0;i<6;i++)
+int i;
+for(i=0;i<6;i++)
     {
     int y=0;
     while (*temp!=',') if (*temp!='_') slices[i][y++]=*temp++;

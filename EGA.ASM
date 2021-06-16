@@ -1,6 +1,9 @@
 % MODEL MEM_MOD
 
+IDEAL
+
 public _set43,_set25,_setvideomode,_getvideomode
+
 
  CODESEG
 
