@@ -1,12 +1,28 @@
-## Makefile for ProCFG
+## Makefile for INSTALL
+
+!include ..\common.mk
+
+PB_LIB   = ..\LIBS
 
 OBJS = install.obj lzhuf.obj editdir.obj readcfg.obj
 
-MODEL   = LARGE
+LIBS = $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\TSWIN_L.LIB \
+       $(PB_LIB)\PBLIB_L.LIB
+CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\th
 
-TSLIB = 1
-TSWIN = 1
-PBLIB = 1
-MATH = 1
+all: mc.cfg install.exe
 
-Install.EXE: $(OBJS)
+install.exe: $(OBJS) $(LIBS)
+	$(TLINK) /c /x /L$(LIBDIR) @&&|
+	c0l  $(OBJS)
+$*
+nul
+emu mathl overlay cl $(LIBS) 
+|
+
+clean:
+  -del *.obj
+  -del install.exe
+
+
+!include ../mc.mk
