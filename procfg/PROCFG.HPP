@@ -1,3 +1,5 @@
+#ifndef INCLUDED_PROCFG_PROCFG_H
+#define INCLUDED_PROCFG_PROCFG_H
 
 /* ------------------------------------------------------------
  * Filename ............... ProCfg.Hpp
@@ -220,3 +222,4 @@ void KeyItem( Window &w,
 
 /*---------------------------] END OF THE CODE [---------------------------*/
 
+#endif  

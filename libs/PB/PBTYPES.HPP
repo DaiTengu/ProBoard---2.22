@@ -1,4 +1,8 @@
+#ifndef INCLUDED_PB_PBTYPES_H
+#define INCLUDED_PB_PBTYPES_H
 
+#include <THTYPES.HPP>
+#include <TSLIB.HPP> // for String
 /* ------------------------------------------------------------
  * Filename ............... PbTypes.Hpp
  *
@@ -100,3 +104,4 @@ typedef BytT PbTime[7][6];
 #endif
 
 /*---------------------------] END OF THE CODE [---------------------------*/
+#endif

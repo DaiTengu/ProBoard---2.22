@@ -1,3 +1,10 @@
+#ifndef INCLUDED_TH_THCLASS_H
+#define INCLUDED_TH_THCLASS_H
+
+#include "THEHOUSE.HPP"
+
+// hack - try to make procfg compile.
+#define Uses_MultiRecIO
 
 /* ------------------------------------------------------------
  * Filename ............... ThClass.Hpp
@@ -98,9 +105,9 @@
 
 /*--] Classes [----------------------------------] MultiRecIO [------------*/
 
-#ifdef Uses_MultiRecIO
-#  ifndef Used_MultiRecIO
-#     define Used_MultiRecIO
+//#ifdef Uses_MultiRecIO
+//#  ifndef Used_MultiRecIO
+//#     define Used_MultiRecIO
 
       _ClassType(MultiRecIO)
       class MultiRecIO : public File
@@ -152,8 +159,8 @@
                   }
       };
 
-#  endif
-#endif
+//#  endif
+//#endif
 
 /*--] Classes [----------------------------------] FormTxt [---------------*/
 
@@ -396,3 +403,5 @@
 #endif
 
 /*---------------------------] END OF THE CODE [---------------------------*/
+
+#endif  // INCLUDED_TH_THCLASS_H

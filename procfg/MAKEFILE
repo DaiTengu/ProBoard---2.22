@@ -10,10 +10,16 @@ OBJS = procfg.obj editaka.obj editlim.obj editmac.obj \
        extsel.obj flags.obj promisc.obj editvtpl.obj template.obj     \
        editgrp.obj editlcol.obj editnode.obj area.obj misc.obj
 
+
+.cpp.obj: 
+  $(CC) @mc.cfg $(CPPFLAGS) -I. -I..\LIBS\TH -I..\LIBS\PB  -Yo -c $<
+
 OVERLAY = 1
 
 #OVLOBJS = $(OBJS,Ntemplate\.obj,Nedituser\.obj,Narea\.obj)
-LIBS = $(PB_LIB)\pb\proboard.lib $(PB_LIB)\th\thehouse.lib
+LIBS = $(PB_LIB)\proboard.lib $(PB_LIB)\thehouse.lib \
+      $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\TSWIN_L.LIB \
+      $(PB_LIB)\PBLIB_L.LIB
 
 CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\th
 
@@ -26,6 +32,10 @@ $*
 nul
 emu mathl overlay cl $(LIBS) 
 |
+
+clean:
+  -del *.obj
+  -del procfg.exe
 
 
 !include ../mc.mk

@@ -1,3 +1,6 @@
+
+#define Uses_MultiRecIO
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -1094,4 +1097,3 @@ main(int argc,char *argv[])
    tsw_cursoron();
    return 0;
 }
-

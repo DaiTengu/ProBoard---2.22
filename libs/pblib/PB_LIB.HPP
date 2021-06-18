@@ -1,3 +1,6 @@
+#ifndef INCLUDED_PBLIB_PB_LIB_H
+#define INCLUDED_PBLIB_PB_LIB_H
+
 #undef enable
 #undef disable
 
@@ -1081,3 +1084,5 @@ void getsyspath(char *syspath,char *argv0);
 dword RA_CRC(char *s);
 dword RaCrc(char *s);
 dword JamCrc(char *s);
+
+#endif // INCLUDED_PBLIB_PB_LIB_H

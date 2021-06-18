@@ -1,3 +1,5 @@
+#ifndef INCLUDED_TH_THEHOUSE_H
+#define INCLUDED_TH_THEHOUSE_H
 
 /* ------------------------------------------------------------
  * Filename ............... TheHouse.Hpp
@@ -85,3 +87,4 @@
 #endif
 
 /*---------------------------] END OF THE CODE [---------------------------*/
+#endif  // INCLUDED_TH_THEHOUSE_H

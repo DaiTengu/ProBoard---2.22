@@ -1,3 +1,5 @@
+#ifndef INCLUDED_TH_THTYPES_H
+#define INCLUDED_TH_THTYPES_H
 
 /* ------------------------------------------------------------
  * Filename ............... ThTypes.Hpp
@@ -104,3 +106,5 @@ TYP   IntT        ArgT;                             //  bytes/chars as ints
 
 /*---------------------------] END OF THE CODE [---------------------------*/
 
+
+#endif  // INCLUDED_TH_THTYPES_H

@@ -25,8 +25,8 @@
 #include <string.h>
 
 #define Uses_MultiRecIO
-#include <ProBoard.Hpp>
 #include "Template.Hpp"
+#include <ProBoard.Hpp>
 
 /*--] Code [-------------------------------------] TemplateIO class [------*/
 

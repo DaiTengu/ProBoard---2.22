@@ -3,6 +3,12 @@
 # Need to override this
 PB_LIB   = ..
 
+ALL_LIBS = PBLIB_$(EXT).LIB SQSH_$(EXT).LIB TSWIN_$(EXT).LIB \
+           TSLIB_$(EXT).LIB THEHOUSE.LIB PROBOARD.LIB
+
+all: $(ALL_LIBS)
+
+
 PBLIB_$(EXT).LIB:
   cd PBLIB
   -$(MAKE) all
@@ -33,11 +39,6 @@ PROBOARD.LIB:
   cd PB
   -$(MAKE) all
   cd ..
-
-ALL_LIBS = PBLIB_$(EXT).LIB SQSH_$(EXT).LIB TSWIN_$(EXT).LIB \
-           TSLIB_$(EXT).LIB THEHOUSE.LIB PROBOARD.LIB
-
-all: $(ALL_LIBS)
 
 clean:
   -erase PBLIB_$(EXT).LIB 
