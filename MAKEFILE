@@ -1,46 +1,13 @@
-## Makefile for ProBoard v1.xx
+    ## Makefile for ProBoard v1.xx
 
 ## Caution!! The standard Borland C++ library has to be changed before compiling
 ## ProBoard v1.30 - The __NFILE__ macro in the file _nfile.h should be changed to
 ## 100. The files FILES.C and FILES2.C in the RTL\CLIB directory should be
 ## recompiled using all memory models, and updated in C?.LIB
 
-# Set this to where the ProBoard Lib exists.
-#PB_LIB  = ..\PBLIB
-# Set this to where the borland C++ compile is installed.
-#BC_DIR   = C:\BORLANDC
-
 ###################################################################################
 # You shouldn't have to touch things under here
-
-# If we don't know where BC 3.1 is installed, then pick where make.exe lives.
-!if !$d(BC_DIR) 
-BC_DIR   = $(MAKEDIR)\..
-BC_BIN   = $(MAKEDIR)
-!else
-BC_BIN   = $(BC_DIR)\BIN
-!endif
-
-!if !$d(PB_LIB)
-# default to ..\pblib
-PB_LIB   = ..\PBLIB
-!endif
-
-!if !$d(MODEL)
-# Large, always large more likely
-MODEL   = LARGE
-EXT     = L
-!endif
-OVERLAY = 1
-
-LIBDIR  = $(BC_DIR)\LIB
-BCC     = $(BC_BIN)\bcc.exe
-TASM    = $(BC_BIN)\tasm.exe
-# Unclear why BCC make is braindead on these defaults (they use TASM not $(TASM))
-CC      = $(BCC)
-AS      = $(TASM)
-TLINK   = $(BC_BIN)\tlink.exe
-
+!include common.mk
 OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        mailchk.obj   msg.obj       zip.obj      \
        writemsg.obj  tops.obj      forward.obj   replymsg.obj  timestat.obj \
@@ -65,7 +32,7 @@ LIBS    = \
  $(PB_LIB)\SQSH_$(EXT).LIB \
  $(PB_LIB)\TSLIB_$(EXT).LIB \
  $(PB_LIB)\TSWIN_$(EXT).LIB
-INCLUDE_DIRS = $(BC_DIR)\INCLUDE;$(PB_LIB)\TSLIB;$(PB_LIB)\TSWIN;$(PB_LIB);$(PB_LIB)\SQUISH\INCLUDE
+INCLUDE_DIRS = $(BC_DIR)\INCLUDE $(PB_LIB)\TSLIB $(PB_LIB)\TSWIN $(PB_LIB) $(PB_LIB)\SQUISH\INCLUDE
  
  # Are these needed?? I doubt it
 TSLIB   = 1
@@ -91,6 +58,9 @@ clean:
 	-del *.obj
 	-del proboard.exe
   -del mc.cfg
+  cd $(PB_LIB)
+  -$(MAKE) clean
+  cd ..
 
 
 # Build the non-overlay versions specially.
@@ -106,7 +76,7 @@ misc.obj: misc.cpp
 timer.obj: timer.cpp
   $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
-ProBoard.exe: $(OBJS_NO_OVL) $(OBJS)
+ProBoard.exe: $(OBJS_NO_OVL) $(OBJS) $(LIBS)
 	$(TLINK) /c /x /L$(LIBDIR) @&&^
 	c0l $(OBJS_NO_OVL) /o $(OBJS) /o-
 $*
@@ -114,5 +84,30 @@ nul
 emu mathl overlay cl $(LIBS) 
 ^ 
 
-mc.cfg: MAKEFILE
-  echo -ml -I$(INCLUDE_DIRS) -X > mc.cfg
+PBLIB_DIR = $(PB_LIB)\PBLIB
+PBLIB_OBJS = $(PBLIB_DIR)\pb_lib.obj $(PBLIB_DIR)\lang.obj $(PBLIB_DIR)\user.obj
+
+.\LIBS\PBLIB_L.LIB: $(PBLIB_OBJS)
+  cd $(PB_LIB)
+  -$(MAKE) all
+  -cd ..\
+
+TSLIB_DIR = $(PB_LIB)\TSLIB
+.\LIBS\TSLIB_L.LIB:
+  cd $(PB_LIB)
+  -$(MAKE) all
+  -cd ..\
+
+TSWIN_DIR = $(PB_LIB)\TSWIN
+.\LIBS\TSWIN_L.LIB:
+  cd $(PB_LIB)
+  -$(MAKE) all
+  -cd ..\
+
+SQSH_DIR = $(PB_LIB)\SQUISH\SRC
+.\LIBS\SQSH_L.LIB:
+  cd $(PB_LIB)
+  -$(MAKE) all
+  -cd ..\
+
+  !include mc.mk

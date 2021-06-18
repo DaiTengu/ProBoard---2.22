@@ -1,0 +1,22 @@
+!include ..\..\common.mk
+
+# Need to override this
+PB_LIB   = ..
+
+OBJS = date.obj dirscan.obj find.obj dstring.obj bitarray.obj \
+       sound.obj misc.obj crc16.obj crc32.obj fuzzy.obj \
+       form.obj msdos.obj fname.obj file.obj inivar.obj dirfunc.obj \
+       copyfile.obj
+.cpp.obj:
+       $(CC) @mc.cfg $(CPPFLAGS) /c $&.cpp
+.c.obj:
+       $(CC) @mc.cfg $(CFLAGS) /c $&.c
+
+all: mc.cfg ..\TSLIB_$(EXT).LIB
+
+..\TSLIB_$(EXT).LIB: $(OBJS)
+   -erase $@
+   &tlib $@ +$?
+
+!include ..\..\mc.mk
+

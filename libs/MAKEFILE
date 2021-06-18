@@ -1,0 +1,33 @@
+!include "..\common.mk"
+
+PBLIB_$(EXT).LIB:
+  cd PBLIB
+  -$(MAKE) all
+  cd ..
+
+TSLIB_$(EXT).LIB:
+  cd TSLIB
+  -$(MAKE) all
+  cd ..
+
+TSWIN_$(EXT).LIB:
+  cd TSWIN
+  -$(MAKE) all
+  cd ..
+
+SQSH_$(EXT).LIB:
+  cd SQUISH\SRC
+  -$(MAKE)
+  -copy BC_MAPIL.LIB ..\..\SQSH_L.LIB
+  cd ..\..
+
+ALL_LIBS = PBLIB_$(EXT).LIB SQSH_$(EXT).LIB TSWIN_$(EXT).LIB TSLIB_$(EXT).LIB
+
+all: $(ALL_LIBS)
+
+clean:
+  -erase PBLIB_$(EXT).LIB 
+  -erase SQSH_$(EXT).LIB
+  -erase TSWIN_$(EXT).LIB
+  -erase TSLIB_$(EXT).LIB
+  -del *.bak
