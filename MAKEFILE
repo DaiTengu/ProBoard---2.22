@@ -62,7 +62,6 @@ clean:
   -$(MAKE) clean
   cd ..
 
-
 # Build the non-overlay versions specially.
 io.obj: io.cpp
   $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
@@ -77,12 +76,12 @@ timer.obj: timer.cpp
   $(CC) @mc.cfg $(CPPFLAGS) -Y -c $?
 
 ProBoard.exe: $(OBJS_NO_OVL) $(OBJS) $(LIBS)
-	$(TLINK) /c /x /L$(LIBDIR) @&&^
+	$(TLINK) /c /x /L$(LIBDIR) @&&|
 	c0l $(OBJS_NO_OVL) /o $(OBJS) /o-
 $*
 nul
 emu mathl overlay cl $(LIBS) 
-^ 
+|
 
 PBLIB_DIR = $(PB_LIB)\PBLIB
 PBLIB_OBJS = $(PBLIB_DIR)\pb_lib.obj $(PBLIB_DIR)\lang.obj $(PBLIB_DIR)\user.obj
@@ -110,4 +109,4 @@ SQSH_DIR = $(PB_LIB)\SQUISH\SRC
   -$(MAKE) all
   -cd ..\
 
-  !include mc.mk
+!include mc.mk

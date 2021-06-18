@@ -24,6 +24,7 @@ EXT     = L
 OVERLAY = 1
 LIBDIR  = $(BC_DIR)\LIB
 BCC     = $(BC_BIN)\bcc.exe
+MAKE    = $(BC_BIN)\make.exe
 TASM    = $(BC_BIN)\tasm.exe
 # Unclear why BCC make is braindead on these defaults (they use TASM not $(TASM))
 CC      = $(BCC)
