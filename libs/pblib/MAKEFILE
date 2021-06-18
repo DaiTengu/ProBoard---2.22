@@ -4,17 +4,16 @@
 PB_LIB   = ..
 
 PBLIB_OBJS = pb_lib.obj lang.obj user.obj
-AFLAGS	= /o /mx /dMEM_MOD=$(MODEL)
-
-.cpp.obj:
-       $(CC) @mc.cfg $(CPPFLAGS) /c $&.cpp
-.c.obj:
-       $(CC) @mc.cfg $(CFLAGS) /c $&.c
 
 all: mc.cfg ..\PBLIB_$(EXT).LIB
 
 ..\PBLIB_$(EXT).LIB : $(PBLIB_OBJS)
    -erase $@
-   &tlib $@ +$?
- 
+   &$(TLIB) $@ +$?
+
+clean:
+  -del *.obj
+  -del mc.cfg
+
+
 !include ..\..\mc.mk

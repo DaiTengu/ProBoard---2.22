@@ -1,5 +1,8 @@
 !include "..\common.mk"
 
+# Need to override this
+PB_LIB   = ..
+
 PBLIB_$(EXT).LIB:
   cd PBLIB
   -$(MAKE) all
@@ -31,3 +34,18 @@ clean:
   -erase TSWIN_$(EXT).LIB
   -erase TSLIB_$(EXT).LIB
   -del *.bak
+  -del /s mc.cfg
+  -del SQUISH\SRC\*.obj
+  -del TSLIB\*.obj
+  -del TSWIN\*.obj
+  -del PBLIB\*.obj
+  cd TSLIB
+  -$(MAKE) clean
+  cd ..\PBLIB
+  -$(MAKE) clean
+  cd ..\TSLIB
+  -$(MAKE) clean
+  cd ..\TSWIN
+  -$(MAKE) clean
+  cd ..
+

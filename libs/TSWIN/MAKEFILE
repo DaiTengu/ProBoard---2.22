@@ -1,4 +1,6 @@
 !include ..\..\common.mk
+PB_LIB   = ..
+
 
 OBJS = error.obj init.obj keyboard.obj misc.obj popmenu.obj \
        rectang.obj scan.obj select.obj viewlist.obj window.obj pws_asm.obj \
@@ -9,6 +11,10 @@ all: mc.cfg ..\TSWIN_$(EXT).LIB
 
 ..\TSWIN_$(EXT).LIB: $(OBJS)
    -erase $@
-   &tlib $@ +$?
+   &$(TLIB) $@ +$?
 
- !include ..\..\mc.mk
+clean:
+  -del *.obj
+  -del mc.cfg
+
+!include ..\..\mc.mk

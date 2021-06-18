@@ -26,8 +26,13 @@ LIBDIR  = $(BC_DIR)\LIB
 BCC     = $(BC_BIN)\bcc.exe
 MAKE    = $(BC_BIN)\make.exe
 TASM    = $(BC_BIN)\tasm.exe
+TLIB    = $(BC_BIN)\tlib.exe
 # Unclear why BCC make is braindead on these defaults (they use TASM not $(TASM))
 CC      = $(BCC)
 AS      = $(TASM)
 TLINK   = $(BC_BIN)\tlink.exe
 
+AFLAGS  = /o /mx /dMEM_MOD=$(MODEL)
+
+.cpp.obj: 
+  $(CC) @mc.cfg $(CPPFLAGS) -Yo -c { $< }

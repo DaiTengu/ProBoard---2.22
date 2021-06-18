@@ -20,12 +20,16 @@
 # Borland C++
 #
 
+TASM    = $(BC_BIN)\tasm.exe
+TLIB    = $(BC_BIN)\tlib.exe
+BCC     = $(BC_BIN)\bcc.exe
+
 MODEL=l
 PREFIX=bc
-COMP=bcc
-LIBIT=tlib
+COMP=$(BCC)
 FLAGS=-c -m$(MODEL) -I..\include -O1 -Y
 LIB_TRAIL=
+LIBIT=$(TLIB)
 
 #
 # WATCOM C 8.x
@@ -51,7 +55,7 @@ LIB_TRAIL=
 
 # Default assembler.  Use "ASM=masm /mx" for Microsoft's assembler.
 
-ASM=tasm /t/mx
+ASM=$(TASM) /t/mx
 
 LIBNAME=$(PREFIX)_mapi$(MODEL).lib
 

@@ -26,7 +26,6 @@ OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        hudson.obj msgbase.obj mark.obj rip.obj jam.obj inpdate.obj tag_rw.obj
 
 OBJS_NO_OVL = exec.obj fossil.obj io.obj menu.obj misc.obj timer.obj
-AFLAGS  = /o /mx /dMEM_MOD=$(MODEL)
 LIBS    = \
  $(PB_LIB)\PBLIB_$(EXT).LIB \
  $(PB_LIB)\SQSH_$(EXT).LIB \
@@ -34,15 +33,6 @@ LIBS    = \
  $(PB_LIB)\TSWIN_$(EXT).LIB
 INCLUDE_DIRS = $(BC_DIR)\INCLUDE $(PB_LIB)\TSLIB $(PB_LIB)\TSWIN $(PB_LIB) $(PB_LIB)\SQUISH\INCLUDE
  
- # Are these needed?? I doubt it
-TSLIB   = 1
-TSWIN   = 1
-SQUISH  = 1
-PBLIB   = 1
-
-.cpp.obj: 
-  $(CC) @mc.cfg $(CPPFLAGS) -Yo -c { $< }
-
 #----------------------------------------------------------------------------#
 
 all: mc.cfg proboard.exe

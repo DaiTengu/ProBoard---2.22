@@ -11,10 +11,6 @@ OVERLAY = 1
 
 OVLOBJS = $(OBJS,Ntemplate\.obj,Nedituser\.obj,Narea\.obj)
 
-TSLIB = 1
-TSWIN = 1
-PBLIB = 1
-
 LIBS = \cpp\lib\pb\proboard.lib \cpp\lib\th\thehouse.lib
 
 CFLAGS = -I\cpp\lib\pb -I\cpp\lib\th

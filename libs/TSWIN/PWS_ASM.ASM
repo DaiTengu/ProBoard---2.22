@@ -2,6 +2,7 @@
 % MODEL MEM_MOD
 
 LOCALS @@
+IDEAL
 
 EXTRN   _tsw_videocard  : BYTE
 EXTRN   _tsw_vsize      : WORD
