@@ -24,7 +24,18 @@ SQSH_$(EXT).LIB:
   -copy BC_MAPIL.LIB ..\..\SQSH_L.LIB
   cd ..\..
 
-ALL_LIBS = PBLIB_$(EXT).LIB SQSH_$(EXT).LIB TSWIN_$(EXT).LIB TSLIB_$(EXT).LIB
+THEHOUSE.LIB:
+  cd TH
+  -$(MAKE) all
+  cd ..
+
+PROBOARD.LIB:
+  cd PB
+  -$(MAKE) all
+  cd ..
+
+ALL_LIBS = PBLIB_$(EXT).LIB SQSH_$(EXT).LIB TSWIN_$(EXT).LIB \
+           TSLIB_$(EXT).LIB THEHOUSE.LIB PROBOARD.LIB
 
 all: $(ALL_LIBS)
 
@@ -39,6 +50,8 @@ clean:
   -del TSLIB\*.obj
   -del TSWIN\*.obj
   -del PBLIB\*.obj
+  -del THEHOUSE.LIB
+  -del PROBOARD.LIB
   cd TSLIB
   -$(MAKE) clean
   cd ..\PBLIB
@@ -46,6 +59,10 @@ clean:
   cd ..\TSLIB
   -$(MAKE) clean
   cd ..\TSWIN
+  -$(MAKE) clean
+  cd ..\TH
+  -$(MAKE) clean
+  cd ..\PB
   -$(MAKE) clean
   cd ..
 

@@ -28,7 +28,7 @@
 
 #define Uses_PbRegkey
 #include <ProBoard.Hpp>
-#include <ProBoard.Reg>
+//#include <ProBoard.Reg>
 
 /*-------------------------------------------------------------------------*/
 
