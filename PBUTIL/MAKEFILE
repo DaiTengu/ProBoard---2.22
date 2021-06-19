@@ -1,14 +1,31 @@
-## Makefile for PBUTIL v1.xx
+## Makefile for PBUTIL
+
+!include ..\common.mk
+
+PB_LIB   = ..\LIBS
 
 OBJS = pbutil.obj userpack.obj msgpack.obj fc.obj msgidx.obj nodelist.obj \
        usersort.obj userkill.obj useridx.obj msgkill.obj msglink.obj \
        msgrep.obj musplay.obj userfix.obj fidx.obj checkbl.obj jampack.obj \
        maint.obj hatch.obj
 
+LIBS = $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\PBLIB_L.LIB
 
-MODEL = LARGE
+CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\TSLIB
 
-TSLIB = 1
-PBLIB = 1
+all: mc.cfg pbutil.exe
 
-pbutil.exe : $(OBJS)
+pbutil.exe: $(OBJS) $(LIBS)
+	$(TLINK) /c /x /L$(LIBDIR) @&&|
+	c0l  $(OBJS)
+$*
+nul
+emu mathl overlay cl $(LIBS) 
+|
+
+clean:
+  -del *.obj
+  -del pbutil.exe
+
+
+!include ../mc.mk

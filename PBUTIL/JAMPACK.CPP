@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "pbutil.hpp"
-#include "..\proboard\jam.hpp"
+#include "..\jam.hpp"
 
 static dword
 JamDate( const Date& pbd , const Time& pbt)
