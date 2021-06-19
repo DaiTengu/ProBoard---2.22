@@ -701,9 +701,9 @@ struct DownloadFile
       String name;
    };
 
-// TODO: this is hacky but don't want to accidentally pick up ../proboard.hpp
+// TODO: this is hacky but don't want to accidentally pick up ../proboard/proboard.hpp
 // by putting it on the include path
-#include "../prompts.hpp"
+#include "../proboard/prompts.hpp"
 
 bool ReadLanguage( char *langname );
 
@@ -711,9 +711,9 @@ char wait_language_hotkeys(char *hk, bool enter = TRUE);
 int  language_string_length( char *str );
 
 
-// TODO: this is hacky but don't want to accidentally pick up ../proboard.hpp
+// TODO: this is hacky but don't want to accidentally pick up ../proboard/proboard.hpp
 // by putting it on the include path
-#include "../reg.hpp"
+#include "../proboard/reg.hpp"
 
 
 #endif
