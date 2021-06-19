@@ -40,9 +40,12 @@ all: mc.cfg proboard.exe
 help:
   @echo Usage: 
   @echo.
-  @echo MAKE [MODEL=LARGE] [BC_DIR=C:\BORLANDC] [PB_LIB=..\PBLIB]
+  @echo Make sure that BORLANDC\BIN is in your path then run:
+  @echo MAKE all
   @echo.
-  @echo Set the values for model, bc_dir, and pb_lib if they are not the defaults.
+  @echo To cleanup (delete) the OBJ and EXE files built and return the source code back
+  @echo to a pristine state, run the following:
+  @echo make clean
 
 clean:
 	-del *.obj

@@ -33,3 +33,16 @@ clean:
   cd convert
   $(MAKE) clean
   cd ..
+
+help:
+  @echo Usage: 
+  @echo.
+  @echo Make sure that BORLANDC\BIN is in your path then run:
+  @echo MAKE all
+  @echo.
+  @echo To cleanup (delete) the OBJ and EXE files built and return the source code back
+  @echo to a pristine state, run the following:
+  @echo make clean
+
+dist:
+  @echo there is no make dist yet, but this will eventualy build the PROBOARD binary
