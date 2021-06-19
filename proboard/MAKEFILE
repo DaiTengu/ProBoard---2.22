@@ -7,7 +7,7 @@
 
 ###################################################################################
 # You shouldn't have to touch things under here
-!include common.mk
+!include ..\common.mk
 OBJS = chat.obj      shell.obj     login.obj     pbuser.obj    readmsg.obj  \
        mailchk.obj   msg.obj       zip.obj      \
        writemsg.obj  tops.obj      forward.obj   replymsg.obj  timestat.obj \
@@ -99,4 +99,4 @@ SQSH_DIR = $(PB_LIB)\SQUISH\SRC
   -$(MAKE) all
   -cd ..\
 
-!include mc.mk
+!include ..\mc.mk

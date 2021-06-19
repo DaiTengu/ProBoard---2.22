@@ -11,8 +11,8 @@ BC_BIN   = $(BC_DIR)\BIN
 !endif
 
 !if !$d(PB_LIB)
-# default to .\pblib
-PB_LIB   = .\LIBS
+# default to ..\LIBS
+PB_LIB   = ..\LIBS
 !endif
 
 !if !$d(MODEL)
