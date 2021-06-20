@@ -48,12 +48,9 @@ help:
   @echo make clean
 
 clean:
-	-del *.obj
-	-del proboard.exe
-  -del mc.cfg
-  cd $(PB_LIB)
-  -$(MAKE) clean
-  cd ..
+	-@del *.obj
+	-@del proboard.exe
+  -@del mc.cfg
 
 # Build the non-overlay versions specially.
 io.obj: io.cpp

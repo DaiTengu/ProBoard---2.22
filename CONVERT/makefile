@@ -21,8 +21,9 @@ emu mathl overlay cl $(LIBS)
 |
 
 clean:
-  -del *.obj
-  -del convert.exe
+  -@del *.obj
+  -@del mc.cfg
+  -@del convert.exe
 
 
 !include ../mc.mk

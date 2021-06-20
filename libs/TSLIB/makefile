@@ -15,8 +15,8 @@ all: mc.cfg ..\TSLIB_$(EXT).LIB
    &$(TLIB) $@ +$?
 
 clean:
-  -del *.obj
-  -del mc.cfg
+  -@del *.obj
+  -@del mc.cfg
 
 !include ..\..\mc.mk
 

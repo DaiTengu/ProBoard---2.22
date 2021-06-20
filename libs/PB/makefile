@@ -22,12 +22,12 @@ all: mc.cfg ..\PROBOARD.LIB
    &$(TLIB) $@ +$?
 
 clean:
-  -del *.obj
-  -del mc.cfg
-  -del PROBOARD.BAK
-  -del PROBOARD.LIB
-  -del ..\PROBOARD.BAK
-  -del ..\PROBOARD.LIB
+  -@del *.obj
+  -@del mc.cfg
+  -@del PROBOARD.BAK
+  -@del PROBOARD.LIB
+  -@del ..\PROBOARD.BAK
+  -@del ..\PROBOARD.LIB
 
 !include ..\..\mc.mk
 

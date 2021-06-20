@@ -41,29 +41,29 @@ PROBOARD.LIB:
   cd ..
 
 clean:
-  -erase PBLIB_$(EXT).LIB 
-  -erase SQSH_$(EXT).LIB
-  -erase TSWIN_$(EXT).LIB
-  -erase TSLIB_$(EXT).LIB
-  -del *.bak
-  -del /s mc.cfg
-  -del SQUISH\SRC\*.obj
-  -del TSLIB\*.obj
-  -del TSWIN\*.obj
-  -del PBLIB\*.obj
-  -del THEHOUSE.LIB
-  -del PROBOARD.LIB
-  cd TSLIB
-  -$(MAKE) clean
-  cd ..\PBLIB
-  -$(MAKE) clean
-  cd ..\TSLIB
-  -$(MAKE) clean
-  cd ..\TSWIN
-  -$(MAKE) clean
-  cd ..\TH
-  -$(MAKE) clean
-  cd ..\PB
-  -$(MAKE) clean
-  cd ..
+  -@erase PBLIB_$(EXT).LIB 
+  -@erase SQSH_$(EXT).LIB
+  -@erase TSWIN_$(EXT).LIB
+  -@erase TSLIB_$(EXT).LIB
+  -@del *.bak
+  -@del /s mc.cfg
+  -@del SQUISH\SRC\*.obj
+  -@del TSLIB\*.obj
+  -@del TSWIN\*.obj
+  -@del PBLIB\*.obj
+  -@del THEHOUSE.LIB
+  -@del PROBOARD.LIB
+  @cd TSLIB
+  @-$(MAKE) clean
+  @cd ..\PBLIB
+  @-$(MAKE) clean
+  @cd ..\TSLIB
+  @-$(MAKE) clean
+  @cd ..\TSWIN
+  @-$(MAKE) clean
+  @cd ..\TH
+  @-$(MAKE) clean
+  @cd ..\PB
+  @-$(MAKE) clean
+  @cd ..
 

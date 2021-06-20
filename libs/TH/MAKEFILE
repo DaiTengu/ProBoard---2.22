@@ -14,16 +14,16 @@ OBJS = TH_BLDKY.OBJ  TH_DSPLY.OBJ  TH_FILE.OBJ   TH_FORM.OBJ   TH_INI.OBJ    TH_
 all: mc.cfg ..\THEHOUSE.LIB
 
 ..\THEHOUSE.LIB: $(OBJS)
-   -erase $@
+   -@erase $@
    &$(TLIB) $@ +$?
 
 clean:
-  -del *.obj
-  -del mc.cfg
-  -del THEHOUSE.BAK
-  -del THEHOUSE.LIB
-  -del ..\THEHOUSE.BAK
-  -del ..\THEHOUSE.LIB
+  -@del *.obj
+  -@del mc.cfg
+  -@del THEHOUSE.BAK
+  -@del THEHOUSE.LIB
+  -@del ..\THEHOUSE.BAK
+  -@del ..\THEHOUSE.LIB
 
 !include ..\..\mc.mk
 

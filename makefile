@@ -18,21 +18,21 @@ all:
   cd ..
 
 clean:
-  cd libs
-  $(MAKE) clean
-  cd ..
-  cd proboard
-  $(MAKE) clean
-  cd ..
-  cd pbutil
-  $(MAKE) clean
-  cd ..
-  cd procfg
-  $(MAKE) clean
-  cd ..
-  cd convert
-  $(MAKE) clean
-  cd ..
+  @cd libs
+  @$(MAKE) clean
+  @cd ..
+  @cd proboard
+  @$(MAKE) clean
+  @cd ..
+  @cd pbutil
+  @$(MAKE) clean
+  @cd ..
+  @cd procfg
+  @$(MAKE) clean
+  @cd ..
+  @cd convert
+  @$(MAKE) clean
+  @cd ..
 
 help:
   @echo Usage: 
