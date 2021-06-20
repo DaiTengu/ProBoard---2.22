@@ -1,6 +1,9 @@
 #ifndef INCLUDED_PROCFG_PROCFG_H
 #define INCLUDED_PROCFG_PROCFG_H
 
+// Include version information
+#include "ver/version.h"
+
 /* ------------------------------------------------------------
  * Filename ............... ProCfg.Hpp
  *
@@ -56,7 +59,7 @@
 
 /*--] version control [----------------------------------------------------*/
 
-#define VERSION                        "2.22"
+//#define VERSION                        "2.22"
 
 /*--] Structure definitions [----------------------------------------------*/
 

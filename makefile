@@ -2,7 +2,7 @@
 
 all:
   cd ver
-  &(MAKE) all
+  $(MAKE) all
   cd ..
   cd libs
   $(MAKE) all

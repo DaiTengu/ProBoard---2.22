@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include "pbutil.hpp"
+#include "ver/version.h"
 
 char *months_short[] = { "???","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 
@@ -25,7 +26,7 @@ char *modes[]={ "UP" , "US" , "MP" , "NC" , "FC" , "MI" , "UK",
 
 getsyspath(syspath,argv[0]);
 
-printf( "\nPBUtil v2.25.2019.03.01 þ The ProBoard Maintenance Utility\n" );
+printf( "\nPBUtil v" VERSION "." VER_DATE " þ The ProBoard Maintenance Utility\n" );
 printf( "Copyright (c) 1997-2019 rileypcmd.com  All Rights Reserved\n\n" );
 
 if(argc<=1 || argv[1][0]=='?')

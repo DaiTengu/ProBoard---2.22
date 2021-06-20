@@ -11,7 +11,7 @@ OBJS = pbutil.obj userpack.obj msgpack.obj fc.obj msgidx.obj nodelist.obj \
 
 LIBS = $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\PBLIB_L.LIB
 
-CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\TSLIB
+CPPFLAGS = -I..
 
 all: mc.cfg pbutil.exe
 

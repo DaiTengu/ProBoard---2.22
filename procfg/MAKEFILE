@@ -9,10 +9,11 @@ OBJS = procfg.obj editaka.obj editlim.obj editmac.obj \
        edituser.obj events.obj editpvt.obj language.obj sel_lang.obj \
        extsel.obj flags.obj promisc.obj editvtpl.obj template.obj     \
        editgrp.obj editlcol.obj editnode.obj area.obj misc.obj
+CPPFLAGS = -I.. -I. -I..\LIBS\TH -I..\LIBS\PB 
 
 
 .cpp.obj: 
-  $(CC) @mc.cfg $(CPPFLAGS) -I. -I..\LIBS\TH -I..\LIBS\PB  -Yo -c $<
+  $(CC) @mc.cfg $(CPPFLAGS) -Yo -c $<
 
 OVERLAY = 1
 
@@ -21,7 +22,6 @@ LIBS = $(PB_LIB)\proboard.lib $(PB_LIB)\thehouse.lib \
       $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\TSWIN_L.LIB \
       $(PB_LIB)\PBLIB_L.LIB
 
-CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\th
 
 all: mc.cfg ProCFG.EXE
 
