@@ -1,5 +1,7 @@
 !include common.mk
 
+DISTDIR=out
+
 all:
   cd ver
   $(MAKE) all
@@ -45,7 +47,7 @@ clean:
   @cd install
   @$(MAKE) clean
   @cd ..
-  -@del /Q out\*.*
+  -del/q OUT\*.*
   -@rmdir out
 
 help:
@@ -57,8 +59,15 @@ help:
   @echo To cleanup (delete) the OBJ and EXE files built and return the source code back
   @echo to a pristine state, run the following:
   @echo make clean
+  echo.
+  @echo To create a installation disk in OUT/ run the following:
+  @echo make dist
+  @echo.
+  @echo Now you can zip up to make a new archive like: 
+  @echo cd OUT
+  @echo zip ..\PB223.ZIP *
+  @echo cd ..
 
-DISTDIR=out
 dist: all
   @echo there is no make dist yet, but this will eventualy build the PROBOARD binary
   @-mkdir $(DISTDIR)

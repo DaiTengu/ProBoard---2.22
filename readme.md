@@ -26,7 +26,23 @@ cd \PB
 make all
 ```
 
-That's it, you should now have a ```ProBoard.exe``` in your ```\PB``` directory,
+That's it, you should now have a ```ProBoard.exe``` in your ```\PB``` directory.
+
+# Creating a new distribution.
+
+A proboard distribution is what you zip up to share with others as a new release, you
+can generate these easily using the borland make commnad.
+
+To create a new distribution, you run the following:
+
+```
+cd \PB 
+make dist
+```
+
+
+# Cleaning up intermediate files
+
 if you want to clean up everything (delete the derived objects) you can run the 
 following command:
 
