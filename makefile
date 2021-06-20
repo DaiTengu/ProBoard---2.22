@@ -24,10 +24,10 @@ all:
   cd ..
 
 clean:
-  @cd libs
   cd ver
-  &(MAKE) clean
-  cd ..
+  @$(MAKE) clean
+  @cd ..
+  @cd libs
   @$(MAKE) clean
   @cd ..
   @cd proboard
@@ -45,6 +45,8 @@ clean:
   @cd install
   @$(MAKE) clean
   @cd ..
+  -@del /Q out\*.*
+  -@rmdir out
 
 help:
   @echo Usage: 
@@ -56,5 +58,19 @@ help:
   @echo to a pristine state, run the following:
   @echo make clean
 
-dist:
+DISTDIR=out
+dist: all
   @echo there is no make dist yet, but this will eventualy build the PROBOARD binary
+  @-mkdir $(DISTDIR)
+  copy convert\convert.exe $(DISTDIR)
+  copy install\install.cfg $(DISTDIR)
+  copy install\install.exe $(DISTDIR)
+  copy dist\doc\*.* $(DISTDIR)
+  copy dist\mnu\*.* $(DISTDIR)
+  copy dist\pex\*.* $(DISTDIR)
+  copy dist\sdk\*.* $(DISTDIR)
+  copy dist\sys\*.* $(DISTDIR)
+  copy dist\txt\*.* $(DISTDIR)
+  copy pbutil\pbutil.exe $(DISTDIR)
+  copy proboard\proboard.exe $(DISTDIR)
+  copy procfg\procfg.exe $(DISTDIR)
