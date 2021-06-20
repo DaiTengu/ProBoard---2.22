@@ -65,6 +65,7 @@ dist: all
   copy convert\convert.exe $(DISTDIR)
   copy install\install.cfg $(DISTDIR)
   copy install\install.exe $(DISTDIR)
+  copy install\config.tpl $(DISTDIR)
   copy dist\doc\*.* $(DISTDIR)
   copy dist\mnu\*.* $(DISTDIR)
   copy dist\pex\*.* $(DISTDIR)
