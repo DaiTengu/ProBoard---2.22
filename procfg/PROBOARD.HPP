@@ -3,10 +3,11 @@
 
 #include <tslib.hpp>
 #include <time.h>
+#include "../ver/version.h"
 
-#define VERSION            "2.22"
-#define TEARVERSION        "2.22"
-#define PID_STRING         "ProBoard 2.22"
+//#define VERSION            "2.22"
+#define TEARVERSION        VERSION
+#define PID_STRING         "ProBoard " VERSION
 #define PID_STRING_HUDSON  PID_STRING " H"
 #define PID_STRING_SQUISH  PID_STRING " S"
 #define PID_STRING_JAM     PID_STRING " J"
@@ -15,7 +16,7 @@
 #define MAX_UNREG_NODES 255
 #define MAX_UNREG_USERS 100000
 
-#define VER_NUM  222
+//#define VER_NUM  222
 
 const word VER_WORD = 0x0220;
 const word VER_BETA = 0xFFFF;   // 0000-EFFF = beta

@@ -8,7 +8,7 @@ OBJS = convert.obj racvt.obj pbcvt.obj rasimul1.obj rasimul2.obj qbbscvt.obj max
 
 LIBS = $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\PBLIB_L.LIB
 
-CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\TSLIB
+CPPFLAGS = -I..
 
 all: mc.cfg convert.exe
 

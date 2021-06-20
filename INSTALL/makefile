@@ -8,7 +8,7 @@ OBJS = install.obj lzhuf.obj editdir.obj readcfg.obj
 
 LIBS = $(PB_LIB)\TSLIB_L.LIB $(PB_LIB)\TSWIN_L.LIB \
        $(PB_LIB)\PBLIB_L.LIB
-CFLAGS = -I$(PB_LIB)\pb -I$(PB_LIB)\th
+CPPFLAGS = -I..
 
 all: mc.cfg install.exe
 

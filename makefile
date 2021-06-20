@@ -1,6 +1,9 @@
 !include common.mk
 
 all:
+  cd ver
+  &(MAKE) all
+  cd ..
   cd libs
   $(MAKE) all
   cd ..
@@ -16,9 +19,15 @@ all:
   cd convert
   $(MAKE) all
   cd ..
+  cd install
+  $(MAKE) all
+  cd ..
 
 clean:
   @cd libs
+  cd ver
+  &(MAKE) clean
+  cd ..
   @$(MAKE) clean
   @cd ..
   @cd proboard
@@ -31,6 +40,9 @@ clean:
   @$(MAKE) clean
   @cd ..
   @cd convert
+  @$(MAKE) clean
+  @cd ..
+  @cd install
   @$(MAKE) clean
   @cd ..
 

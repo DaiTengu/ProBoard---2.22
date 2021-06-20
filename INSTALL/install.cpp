@@ -6,8 +6,7 @@
 #include <io.h>
 
 #include "install.hpp"
-
-#define VERSION "2.22"
+#include "ver/version.h"
 
 LinkedList<tExtConvert>      ll_ext_conv;
 LinkedList<tFileDestination> ll_file_dest;
@@ -109,7 +108,7 @@ main(int ,char *argv[])
 
    titlew.centerLine( 0,"ProBoard v" VERSION " Installation Utility", 0x71);
 
-   tsw_showfooter( "Copyright (c) 1990-2019  John Riley, Sr. http://rileypcmd.com  All Rights Reserved",
+   tsw_showfooter( "Copyright (c) 2019+ ProBoard Development Ninja Team.  All Rights Reserved",
                    BAR_HIGH );
 
    for(;;)

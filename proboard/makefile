@@ -32,6 +32,7 @@ LIBS    = \
  $(PB_LIB)\TSLIB_$(EXT).LIB \
  $(PB_LIB)\TSWIN_$(EXT).LIB
 INCLUDE_DIRS = $(BC_DIR)\INCLUDE $(PB_LIB)\TSLIB $(PB_LIB)\TSWIN $(PB_LIB) $(PB_LIB)\SQUISH\INCLUDE
+CPPFLAGS = -I..
  
 #----------------------------------------------------------------------------#
 

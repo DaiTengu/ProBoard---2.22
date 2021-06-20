@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <tslib.hpp>
 #include "convert.hpp"
-
+#include "ver/version.h"
 unsigned _stacksize = 16000;
 
 Config cfg;
@@ -10,8 +10,9 @@ char syspath[70];
 
 main(int argc,char *argv[])
 {
- printf("\nProBoard v2.2 Conversion Utility\n" );
- printf( "Copyright (c) 1990-1999 TeleGrafix Communications, Inc.  All Rights Reserved\n\n");
+ printf("\nProBoard %s" VERSION " Conversion Utility\n");
+ printf("Copyright (c) 2019+ ProBoard Development Ninja Team.  All Rights Reserved\n");
+ printf("Copyright (c) 1990-1999 TeleGrafix Communications, Inc.  All Rights Reserved\n\n");
 
  getsyspath(syspath,argv[0]);
 
