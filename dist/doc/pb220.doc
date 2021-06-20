@@ -8,13 +8,13 @@
   ±±±±Û      ±±Û ±±Û ±±±±±±Û ±±±±±±±±±Û ±±±±±±Û ±±Û ±±Û ±±Û ±±Û ±±±±±±±Û
    ßßßß       ßß  ßß  ßßßßßß  ßßßßßßßßß  ßßßßßß  ßß  ßß  ßß  ßß  ßßßßßßß
 
-                      "The Choice of Professionals"
-                               Version 2.2
+            "Make ProBoard The Choice of Professionals Again!"
+                               Version 2.22
 
-                         ++ December 10, 1999 ++
+                         ++ October 26th, 2019 ++
 
 
-         Copyright (c) 1990-1999  TeleGrafix Communications, Inc.
+                Copyright (c) 1990-2019  John Riley, Sr.
                            All rights reserved.
 
 
@@ -36,6 +36,7 @@ IBM PC/XT/AT               International Business Machines, Inc.
 LANtastic                  Artisoft Inc.
 MBUTIL                     Gerard van der Land
 Microsoft C                Microsoft, Inc.
+Microsoft Windows	   Microsoft, Inc.
 Multi-Edit                 American Cybernetics, Inc.
 Opus                       Wynn Wagner III
 QEMM                       Quarterdeck Office Systems
@@ -67,12 +68,9 @@ X00                        Ray Gwinn
 ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
 
 - ProBoard (to include all executables and documentation files) is
-  copyrighted material of TeleGrafix Communications, Inc.
+  copyrighted material of John Riley, Sr. and http://rileypcmd.com.
 
-- You can use ProBoard for a period of 60 days, free of charge.  If you
-  use the software after the evaluation period of 60 days, you MUST
-  register.  (For registration information, see the appropriate section
-  of this manual).
+- You can use ProBoard free of charge.
 
 - We reserve the right to quit giving support or releasing updates of the
   software.  We also reserve the right to charge a nominal upgrade fee
@@ -85,7 +83,8 @@ X00                        Ray Gwinn
   or indirect damages, resulting from the use of the software.
 
 - You may not reverse-engineer ProBoard in any way and you may not add,
-  change or delete any files in the distribution archive.
+  change or delete any copyright information in the distribution
+  file archive or on the ProBoard.com GITHub.
 
 - You are free to distribute the original, unmodified ProBoard archive
   provided no fee is charged for its distribution.  This excludes charges
@@ -206,7 +205,12 @@ X00                        Ray Gwinn
             - Uploading to the current file area ....... 119
 
        SOFTWARE DEVELOPMENT KIT ........................ 119
-
+       TELNET .......................................... 120
+            - Windows 10 Information ................... 120
+                - Enable Legacy Console Mode ........... 120
+            - Setuping up ProBoard with Net2BBS ........ 120
+            - NFU and DOOR32.SYS under ProBoard for DOS  121
+            - Setuping up ProBoard with GameSrv ........ 128
 
 ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 º INTRODUCTION                                                          º
@@ -247,8 +251,6 @@ with your BBS using the SDK and a C/C++ compiler.  Programs written with
 the ProBoard SDK are called PEX (ProBoard Executable) files.  This built
 in "PEXability" assures you that there's nothing ProBoard can't do!
 
-
-
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                       4
 You do not have to be a C/C++ programmer to enjoy the benefits of
@@ -285,7 +287,6 @@ it.
 
 Thank you for choosing ProBoard, "The Choice of Professionals".
 
-
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³ Features                                                              ³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
@@ -309,8 +310,6 @@ ProBoard.
 
 - Compatible with most, if not all, doors written for other BBS software
   such as RemoteAccess, QuickBBS, PCBoard, etc.
-
-
 
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                       5
@@ -372,8 +371,6 @@ ProBoard.
 
 - Powerful User Editor including filter function, allows you to easily
   find and work with only the users you specify.
-
-
   
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                       6
@@ -421,7 +418,6 @@ ProBoard.
 
 - Lots and lots more...
 
-
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³ Technical Info                                                        ³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
@@ -444,39 +440,75 @@ For the development of ProBoard, we used the following tools:
 ³ Credits                                                               ³
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
 
-ProBoard and all the included utilities are written by:
+ProBoard is owned by:
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 
-    TeleGrafix Communications, Inc.
-    2180 S. Loudoun Street
-    PMB #308
-    Winchester, VA 22601
+	John Riley, Sr.
+	177 Amberwood Dr. Apt. C-4
+	Sulligent, AL.  35586
 
+	http://slasherbbs.com
+	http://rileypcmd.com
+	http://proboardbbs.com
+
+	rileyil77@gmail.com
+
+ProBoard and all the included utilities are updated by:
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+    ProBoard Development Ninja Team
 
 ProBoard and all the included utilities were originally written by:
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 
     Philippe Leybaert
-
 
 Portions of ProCFG are also written by:
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 
     Alain Schellinck
     Modifications by Jeff Reeder
-
+    Modifications by ProBoard Development Ninja Team
 
 The ProBoard documentation is written by:
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 
-    Jim Biggs & Philippe Leybaert
-    Reformatting and v2.2 additions by Jeff Reeder
-
+    Originally written by:				Jim Biggs & Philippe Leybaert
+    Reformatting and v2.2 additions by:			Jeff Reeder
+    ProBoard v2.22 Additions and Telnet Information:	John Riley, Sr.
 
 Note from Jim:
-ÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
 This version of the documentation is dedicated to my late Father,
 Richard Merle Biggs.  Dad, you will never ever be forgotten.
 
+Note from John:
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+The ProBoard version 2.22 and beyond document is dedicated to my two
+BBS Brothers, Robert King of Decatur, Illinois, and Eli Sanford of
+Gastonia, North Carolina.
+
+First and foremost, Robert King.  ProBoard SySop of both
+Planet Caravan and God and Country Node 2.  Robert King, you introduced
+me to ProBoard.  I fell in love with ProBoard BBS software Package so much,
+I just had to buy the complete and total rights and source code to it!
+I will forever remember you and the years (K-12) we went to school.
+I will remember our late nights hanging out and building computers.  How I
+wish you could be here on the ProBoard Development Ninja Team.  You would
+love it!  You will always and forever be my brother.  I love and miss you
+daily, Rob.
+
+Secondly but surely not least, Eli Sanford.  Eli Sanford, you have gone
+down in BBS History as one of the, if not the greatest WWiV BBS Software
+supports of all time.  You and I were brothers seperated by different moms
+and dads.  El, you and I caused hell in the thebbs.org IRC chatrooms,
+raised hell on the internet radio air waves.  We caused trouble in your
+IRC Network, oddnet.net.  We took knowledge our knowledged and founded
+Osprey Networks.  We once again raised hell over the internet radio air
+waves.  We fought the good fight.  No, matter what though, you supported
+me and my love for ProBoard in everyway.  Even if you did try to convince
+all the time to walk away from a ProBoard BBS and switch to WWiV.  I love
+you, Eli.  You will always be my brother.
 
 ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 º SUPPORT                                                               º
@@ -488,18 +520,12 @@ Richard Merle Biggs.  Dad, you will never ever be forgotten.
 
 Support for ProBoard can be obtained via the following locations:
 
-     TeleGrafix Communications, Inc.
-     2180 S. Loudoun Street
-     Suite 308
-     Winchester, VA 22601
-
-     Voice: (540) 678-4050
-     Sales: (540) 678-4051
-       Fax: (540) 678-4052
-     Email: support@telegrafix.com
-       Web: http://www.telegrafix.com
-
-
+	John Riley, Sr.
+	
+	Landline:	(205) 606-1123
+	Cell:		(205) 570-5029
+	Email:		rileyil77@gmail.com
+	Website:	http://proboardbbs.com
 
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                       8
@@ -509,41 +535,33 @@ Support for ProBoard can be obtained via the following locations:
 
 There are many WWW and FTP sites available on the internet.  Many of them
 are maintained by independent ProBoard-gurus.  Links to these sites can
-be found on the ProBoard web site.
+be found on SLASHER BBS, the official BBS of ProBoard BBS Software.
 
-The "official" ProBoard WWW web site is:
+The "official" ProBoard web site is:
 
-       http://www.telegrafix.com
-
+       http://proboardbbs.com
 
 ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 º REGISTRATION                                                          º
 ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
 
-ProBoard is SHAREWARE. This means that you are granted a 60-day
-evaluation period, after which you must register.
+ProBoard is FREEWARE. This means that you are granted a lifetime
+period to run ProBoard..
 
-After receiving your registration, you will receive a registration key
-file via Internet Email, or through postal mail if you do not have an
-Internet Email address. Note, your Email account must support file
-attachments.
-
-Registration of ProBoard is currently US$49.95.
-
-To order a copy of ProBoard via our Web site, click here.
-
+To donate to the ProBoard Development Ninja Team please use PayPal.
+My PayPal account is:	rileyil77@gmail.com
+ProBoard is freeware, however donations will be accepted via PayPal
+only!
 
 ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
 º INSTALLATION                                                          º
 ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
-
 
 See the file INSTALL.TXT for installation instructions.
 
 If you currently operate a RemoteAccess bulletin board system, read the
 next paragraph for specific instructions on how to convert your existing
 system.
-
 
 ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ³ RemoteAccess 2.02 to ProBoard Conversion                              ³
@@ -1400,6 +1418,7 @@ Upon selection of the 'Protocols' option, a submenu is displayed
 containing the protocols already present. Add a protocol by pressing
 <Ins>, remove a protocol by pressing <Del>.
 
+
 A protocol is entirely defined by the following parameters:
 
 Protocol Name ............... Protocol's name, to be displayed in the
@@ -1566,6 +1585,7 @@ and should be located in your ProBoard PEX directory.
 
 The protocol is already configured in the PROTOCOL.PRO file that comes
 with ProBoard.  If you have upgraded from an earlier version of ProBoard,
+
 you can add the protocol manually.  This is how you should set it up:
 
      ==================================================================
@@ -1637,6 +1657,7 @@ To edit a Message Area, press <Enter>.  To add a Message Area, press
 
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                      26
+
 For example, entering the number 10000 will create message area 10000.
 Keep in mind that if you are using the HUDSON format for any of your
 message areas, that any areas specified to use the HUDSON format will
@@ -6949,6 +6970,7 @@ A '^' means Ctrl, so ^D means Ctrl-D.
 ÀÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
   11-65   ^KA    Total number of calls to the BBS.
   11-66   ^KB    Name of the last user on the BBS.
+
   11-67   ^KC    Number of active Hudson message base messages.
   11-68   ^KD    Number of first message.
   11-69   ^KE    Number of last message.
@@ -7488,14 +7510,10 @@ consists of the files PB_SDK.H, PB_SDK.OBJ and PB_SDK.LIB.
 The SDK allows C and C++ programmers to write extensions to ProBoard. The
 ProBoard Software Development Kit is bundled with ProBoard as free
 software.  This means that you may use it to write extensions for
-ProBoard without having to register ProBoard.  The only exception of
-course, is if you are using ProBoard to run a BBS on a regular basis.
-
-
-
+ProBoard.
 
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-                                     119
+                                     
 The extensions you can write for ProBoard are called "PEX" (ProBoard
 Executable) files.  You may distribute any ProBoard PEX files you write
 royalty free.
@@ -7507,6 +7525,668 @@ For more information on using the ProBoard Software Development Kit (SDK)
 and the functions that it contains, please refer to the file included
 with this release of ProBoard, called "PB220SDK.DOC".
 
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     119
+
+ÉÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ»
+º Telnet                                                                º
+ÈÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍÍ¼
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Windows 10 Information                                                ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+Users settuping ProBoard with GameSrv or Net2BBS on Windows XP through
+Windows 8.1 can skip this information.
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Enable Legacy Console Mode                                            ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+1. 	Open a command prompt, elevated command prompt, PowerShell, or 
+	elevated PowerShell window.
+ 	Another way is you could also just directly right click on the
+	console window shortcut or file, click/tap on Properties, and go
+	to step 3 below.
+
+2. 	Right click or press and hold on the title bar of the console
+	window, and click/tap on Properties.
+
+3.	Click/tap on the Options tab, check the Use legacy console box for
+	to turn on the Legacy Mode.  This is actually needed to run any
+	DOS BBS software or DOS Door software in Windows 10!
+	Click/Tap on OK to apply.
+
+4.	Close and reopen the console window to apply.
+
+This information was given by Mike Ehlert of PCMicro.com
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Setuping up ProBoard with Net2BBS                                   ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+ NetFoss was tested with ProBoard BBS for DOS version 2.17 and higher.
+ Replace C for your actual hard drive letter, if you did not use the C Drive.
+ Here is how to configure it:
+
+  1) Extract ProBoard in c:\pb
+	A.  Create directories for each node such as c:\pb\node1 
+	    and c:\pb\node2 etc.  *THIS IS A MUST!*
+	B.  Your directory should look like this:
+
+		C:\PB
+		C:\PB\NODE1
+		C:\PB\NODE2 
+
+  2) Create a RUNPB.BAT in the ProBoard Directory, which looks like this:
+
+            set proboard=c:\pb
+            cd\pb\node%1
+            \pb\proboard.exe -B115200 -N%1
+
+    The -B115200 switch tells ProBoard to assume that the caller is
+    already connected to the modem at that speed.
+    The -N%1 passes the node number, since %1 is replaced with the
+    node number when the batch file is run.
+
+  3) Unzip the NetFoss files into a directory such as c:\netfoss\ and also
+     unzip the included NET2BBS.ZIP into the same directory.
+     Copy NETFOSS.DLL into the \windows\system32\ directory.
+     This can ONLY be done from a Command Prompt which was opened using
+     "Run As Administrator" (right click on its icon to select this) in Windows
+     Vista and above.  However this can also be done from dragging NETFOSS.DLL
+     in Windows Explorer to the \windows\system32\ folder.
+
+  4) Configure a Telnet Server to run the NF.BAT and the RUNPB.BAT
+     batch files. If you are using the included Net2BBS Telnet Server,
+     then edit your Net2BBS.INI file to use a command line like this:
+
+        Command=c:\netfoss\nf.bat /n*N /h*H c:\pb\runpb.bat *N
+        StartPath=c:\pb\node*N
+
+  5) For maximum file transfer speed, install Public Domain Zmodem
+     (PD ZModem) as an external protocol in ProBoard. This runs several
+     times faster then the ProBoard internal Zmodem or FDSZ.
+
+  6) Run NET2BBS.EXE, and it is ready to accept telnet connections.
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     120
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ NFU and DOOR32.SYS under ProBoard for DOS                             ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+The following was written by Mike Ehlert and John Riley, Sr.
+
+NetFoss Utilities for Win32 Doors version 1.14
+==============================================
+
+NFU allows DOS BBS software using NetFoss to run Win32 doors.
+NFU currently has three functions:
+
+1. Builds a DOOR32.SYS drop file, needed by most Win32 BBS Doors.
+   It does this by reading user data from the DOOR.SYS drop file, and also
+   reading the Telnet Socket Handle from the Windows Environment Variable
+   %SOCKET%.
+
+2. Allows a Win32 application to run from a DOS BBS Shell, which must be
+   passed on the NFU command line.
+
+3. It has an option to also pass keystrokes to the Console when the door
+   launches, but this does not work for non-Console GUI doors. This can be
+   useful for doors that ask if ANSI is supported, or asks the user for
+   their name. It can also be used to allowing a DOS BBS to shell to a
+   Win32 BBS that uses the same userbase.
+
+NFU [path to DOOR.SYS] ["Door Command line + parameters in quotes"] <Opt par>
+
+Examples:
+   NFU c:\proboard\node1 "c:\proboard\dark32\dark32.exe /n1"
+   NFU . "c:\proboard\dark32\dark32.exe /n1" (dot uses current directory)
+
+Shortcuts:
+    $  - Replaced by path+\ only of DOOR32.SYS
+    ^  - Replaced by path+\filename of DOOR32.SYS
+
+Optional parameters:
+   /Q  - Quiet Mode: No console output except for error messages
+   /R  - RIP Enable: Without this, RIP Emulation in DOOR.SYS is ignored
+   /YN - Send Yes/No character to a door that asks user if they have ANSI
+   /K="x" - Stuff keyboard buffer with one character or a string of characters
+            Keyboard macros: |=Enter, !N=User Name, !A=User Alias, !P=Password
+
+The second parameter can be a batch file (.BAT or .CMD), or an executable.
+Keyboard macros are case sensitive.
+
+
+IMPORTANT INSTRUCTIONS
+======================
+
+If you are using Net2BBS version 1.14 or later then skip the next two steps
+and continue on to the the "Adding your DOOR32 to your BBS" section.
+Net2BBS 1.14 and later automatically updates the %SOCKET% environment variable
+with the Telnet Socket Handle.
+
+
+Changes to your telnet server command line:
+-------------------------------------------
+
+If your current telnet server command line may look something like this:
+Command=c:\netfoss\nf.bat /n*N /h*H c:\pb\proboard.bat *N
+
+As you can see, the BBS batch file (in this case proboard.bat) is only being
+passed the node number, (using the *N macro) which it will be able to accessed
+as variable %1 since it is the first parameter passed.
+
+You will need to change the command line to also pass the Socket Handle
+(using the *H macro), as the second parameter being passed to proboard.bat, so
+it will be accessable as variable %2.
+
+The new telnet server command line will look like this after the change:
+Command=c:\netfoss\nf.bat /n*N /h*H c:\proboard\proboard.bat *N *H
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     121
+
+Changes to the BBS batch file:
+------------------------------
+
+Add the following line to proboard.bat before it runs the BBS software:
+set SOCKET=%2
+
+This will store the socket handle into the environment variable %SOCKET%,
+which can later be accessed by NFU so the socket handle can be placed in the
+DOOR32.SYS drop file it creates.
+
+Adding your DOOR32 door to your BBS:
+------------------------------------
+
+In order for a DOS BBS to run a Win32 Door, the Door command line or batch
+file must be passed through NFU on the second command line parameter shown
+above. The Door command line must be contained within quote marks to allow
+spaces between any passed parameters.
+
+Below are setup examples for the following 32-bit Windows doors:
+
+BBSLink
+MannIRC
+LORD32
+Darkness
+DoorMud
+Ambroshia
+Pimp Wars
+Jezibel
+Food Fight 2004
+
+
+BBSLink
+-------
+
+BBSLink is an InterBBS Game Server using a modifed version of Manning's Telnet Door
+which automaticly logs the user into their Server and directly into the desired door
+using the BBS Sysops pre-assigned credentials.
+You can join for free at http://bbsnet.net
+
+How to install BBSNet for a DOS BBS:
+
+1. Extract BBSlink to a directory/folder. (In this example we will assume C:\BBSLINK)
+   and install Microsoft DotNet (.NET), which is required by the RM Library .DLL
+
+2. Edit your BBSLINK.BAT file, and fill in the 3 codes provided by the BBSLink admin.
+   While you are editing this batch file, you will need to add a "Change Directory"
+   command to change to its directory somewhere before the bbslink.exe line:
+   CD\BBSLINK
+   If you are running your BBS from a different drive then BBSLink is on, then you may
+   also want to add a "C:" command on the line above it.
+
+3. In your BBS software, configure your door to run a Command Line such as this example,
+   which will run NFU.EXE and pass the path-only of your BBS Nodes dropfile directory,
+   as well as the BBSLINK.BAT that NFU will execute along with its needed parameters.
+   Say for example, that your BBS software is ProBoard and your BBS directory structure is
+   C:\PB  (main BBS directory)
+   C:\PB\NODE1   (Node 1 dropfile directory)
+   C:\PB\NODE2   (Node 2 dropfile directory)
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     122
+
+   ProBoard BBS uses the following Door Command Line macros:
+       *# is replaced by the Node number
+       *D tells ProBoard to create a DOOR.SYS drop file, and is filtered out. 
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\bbslink\bbslink.bat lord C:\pb\node*#\DOOR32.SYS" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\pb\nfu.exe c:\pb\node1 "c:\bbslink\bbslink.bat lord c:\pb\node1\DOOR32.SYS"
+
+   Since ProBoard and most other BBS software sets the current directory as the node's
+   dropfile directory before executing a door, you could shorten the size of the
+   first parameter by replacing the path to the dropfile diretory shown above with just
+   a ".", telling NFU to use the current directory to read door.sys from and to create
+   the DOOR32.SYS in, like so:
+   c:\netfoss\nfu.exe . "c:\bbslink\bbslink.bat lord c:\pb\node1\DOOR32.SYS" *D
+
+   You could also shorten the second parameter by replacing the "Full path+\DOOR32.SYS"
+   with a "^" character, like so:
+   c:\netfoss\nfu.exe . "c:\bbslink\bbslink.bat lord ^" *D
+
+   Note: the *D in this example is only used to tell ProBoard to create a DOOR.SYS
+   drop file. Other BBS software will have different ways of configuring this which
+   are often not command line macros. Many BBS programs create the DOOR.SYS by default.
+
+   Check your BBS documentation on what macro it uses to pass the node number. While
+   Proboard uses *#, most BBS software use *N and many use other macros.
+
+4. Once you have BBSLink working sucessfully with the above configuration for the LORD
+   door, simply create additional menu options as above for the other door games
+   available on BBSlink, replacing the word "lord" with one of the other door codes,
+   such as lord2, teos, ooww, tw, luna, etc. A complete list of codes is available at
+   http://www.bbslink.net/sysop/
+
+   Avoid these common mistakes:
+   * Don't leave out the quote marks on the Command Line passed to NFU. NFU requires two
+     parameters (1: The dropfile path to the door.sys, 2: the full command line to execute),
+     and this second parameter must be in quotes if it contains its own set of parameters.
+   * Do not include the name of DOOR.SYS in parameter 1, just the path where it is located
+     NFU will read the DOOR.SYS dropfile here, and will create the DOOR32.SYS dropfile in
+     the same directory before executing the Command Line in parameter 2.
+   * BBSLink requires NOT ONLY the path to a DOOR32.SYS file as stated in it's documentation,
+     it also requires the DOOR32.SYS filename to be included in that path.
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     123
+
+MannIRC Door
+------------
+
+MannIRC is a Bitch-X style IRC client for BBS systems by Rick Parrish of R&M Software,
+and is available from http://randm.ca
+
+Here is how to install it.
+
+1. Extract MANNIRC.RAR to a directory/folder. (In this example we will use C:\PB\MANNIRC)
+
+2. Open MannIRC.ini in your favourite text editor, and edit the options as described in
+   MANNIRC.HTML
+
+3. In your BBS software, configure your door to run a Command Line such as this example,
+   which will run NFU.EXE and pass the path-only of your BBS Nodes dropfile directory,
+   as well as the MANNIRC.EXE that NFU will execute along with its needed node parameter.
+   Say for example, that your BBS software is ProBoard and your BBS directory structure is
+   C:\PB  (main BBS directory)
+   C:\PB\NODE1   (Node 1 dropfile directory)
+   C:\PB\NODE2   (Node 2 dropfile directory)
+
+   ProBoard BBS uses the following Door Command Line macros:
+       *# is replaced by the Node number
+       *D tells ProBoard to create a DOOR.SYS drop file, and is filtered out. 
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\mannirc\mannirc.exe c:\pb\node*#\door32.sys" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\mannirc\mannirc.exe c:\pb\node1\door32.sys"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of the first parameter
+   replacing the path to the dropfile diretory shown above in parameter 1 with just a
+   ".", telling NFU to use the current directory to read door.sys from and to
+   create the door32.sys in, like so:
+   c:\netfoss\nfu.exe . "c:\pb\mannirc\mannirc.exe c:\pb\node*#\door32.sys" *D
+
+   To make the second parameter shorter, you can use the "^" shortcut character to replace
+   the path and filename of the DOOR32.SYS like so:
+   c:\netfoss\nfu.exe . "c:\pb\mannirc\mannirc.exe ^" *D
+
+
+LORD32
+------ 
+
+Legend of the Red Dragon Win32 edition was never released to the public. It was written
+by Michael Preslar while he worked for Metropolis Gameport, and the 2005 beta version
+can be found on several BBS sites. Only the DOS edition is available from gameport.com.
+
+Here is how to install it:
+
+1. Extract 32LO407B.ZIP to a directory/folder. In this example
+   we will assume C:\PB\LORD32
+
+2. Run LORDCFG.EXE, and if this is a new installation it will prompt you to create
+   a new LORD.DAT file. 
+   Select Configure Nodes, and Use the "[" and "]" keys to go forward and back one node,
+   and for each node page, set the following:
+      BBS Software: DOOR.SYS
+      Path to Dropfile: <the path where your BBS creates the DOOR.SYS for this node>
+      Fossil/Internal:  Regular Fossil Driver
+  Once all nodes are configured, press escape to exit.
+
+3. In your BBS software, configure your door to run a Command Line such as this example,
+   which will run NFU.EXE and pass the path-only of your BBS Nodes dropfile directory,
+   as well as the LORD32.EXE that NFU will execute along with its needed node parameter.
+   Say for example, that your BBS software is ProBoard and your BBS directory structure is
+   C:\PB  (main BBS directory)
+   C:\PB\NODE1   (Node 1 dropfile directory)
+   C:\PB\NODE2   (Node 2 dropfile directory)
+
+   ProBoard BBS uses the following Door Command Line macros:
+       *# is replaced by the Node number
+       *D tells ProBoard to create a DOOR.SYS drop file, and is filtered out. 
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\lord32\lord.exe -Dc:\pb\node*#\door32.sys" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\lord32\lord32.exe -Dc:\pb\node1\door32.sys"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of the first parameter by
+   replacing the path to the dropfile diretory shown above in parameter 1 with just a
+   ".", telling NFU to use the current directory to read door.sys from and to
+   create the door32.sys in, like so:
+   c:\netfoss\nfu.exe . "c:\pb\lord32\lord32.exe -Dc:\pb\node*#\door32.sys" *D
+
+   You can also shorten the second parameter by replacing the path+\door32.sys to
+   with the "^" character like so:
+   c:\netfoss\nfu.exe . "c:\pb\lord32\lord32.exe -D^" *D
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     124
+
+Darkness
+--------
+
+Darkness was one of the first DOOR32 door games released. It is a LORD style game,
+by Jack Phlash of Demonic, and is available from Distortion BBS at http://d1st.org
+Here is how to install it.
+
+1. Extract DRK100B3.ZIP the D112001.ZIP update to a directory/folder. In this example
+   we will assume C:\PB\DARK32
+
+2. Run DARKCFG.EXE, and select [c] BBS and modem config.
+   Use the "[" and "]" keys to go forward and back one node, and for each node page,
+   you will need to select "[d] Drop file directory" and change it to the correct
+   directory for your BBS. For example, C:\PB\NODE1\  for Node 1
+   Once you have configured all your nodes, press [q] twice to quit and save changes.
+
+3. In your BBS software, configure your door to run a Command Line such as this example,
+   which will run NFU.EXE and pass the path-only of your BBS Nodes dropfile directory,
+   as well as the DARK32.EXE that NFU will execute along with its needed node parameter.
+   Say for example, that your BBS software is ProBoard and your BBS directory structure is
+   C:\PB  (main BBS directory)
+   C:\PB\NODE1   (Node 1 dropfile directory)
+   C:\PB\NODE2   (Node 2 dropfile directory)
+
+   ProBoard BBS uses the following Door Command Line macros:
+       *# is replaced by the Node number
+       *D tells ProBoard to create a DOOR.SYS drop file, and is filtered out. 
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\dark32\dark32.exe /N*#" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\dark32\dark32.exe /N1"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of the first parameter by
+   replacing the path to the dropfile diretory shown above in parameter 1 with just a
+   ".", telling NFU to use the current directory to read door.sys from and to
+   create the door32.sys in, like so:
+   c:\netfoss\nfu.exe . "c:\pb\dark32\dark32.exe /N1" *D
+
+
+DoorMud
+-------
+
+DoorMud - Land of the Forgotten is a Multi User Dungeon (MUD) game by Evan Elias, and
+it's available from http://dmud.thebbs.org
+
+Here is how to install it:
+
+1. Extract the DOOR32 version of DoorMud (DMUD099D.ZIP) to a directory/folder.
+   (In this example we will assume C:\PB\DMUD)
+
+2. You must first run the door in local mode by executing "dmud32d.exe -l".  The game will
+   automatically finish its installation the first time you run it in local mode.
+
+3. In your BBS software, configure your door to run a Command Line such as this example,
+   which will run NFU.EXE and pass the path-only of your BBS Nodes dropfile directory,
+   as well as the DMUDD32.EXE that NFU will execute along with its needed parameters.
+   Say for example, that your BBS software is ProBoard and your BBS directory structure is
+   C:\PB  (main BBS directory)
+   C:\PB\NODE1   (Node 1 dropfile directory)
+   C:\PB\NODE2   (Node 2 dropfile directory)
+ 
+   ProBoard BBS uses the following Door Command Line macros:
+       *# is replaced by the Node number
+       *D tells ProBoard to create a DOOR.SYS drop file, and is filtered out. 
+   So the following type-7 Command Line could be configured for this door in ProCfg:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\dmud\dmudd32.exe -N *# -D c:\pb\node*#" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\dmud\dmudd32.exe -N 1 -D c:\pb\node1"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of the first parameter by
+   replacing the path to the dropfile diretory shown above in parameter 1 with just a
+   ".", telling NFU to use the current directory to read door.sys from and to
+   create the door32.sys in, like so:
+   c:\netfoss\nfu.exe . "c:\pb\dmud\dmudd32.exe -N *# -D c:\pb\node*#" *D
+
+   You can also shorten the second parameter by replacing the path (only) to
+   the DOOR32.SYS file (without the filename) with the "$" character like so:
+   c:\netfoss\nfu.exe . "c:\pb\dmud\dmudd32.exe -N *# -D $" *D
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     125   
+
+-----------------------------------------------------------------------------------
+Above this point we have provided examples with detailed descriptions of the various
+ways the Door Command Line can be entered using the shortcuts to minimize the size
+of the Command line. The examples below include less details to avoid repetition.
+------------------------------------------------------------------------------------
+
+Ambroshia
+---------
+
+Ambroshia - The Test of Time is a Multi User Dungeon (MUD) game by Dominic Carretto, and
+it's available from http://ambroshia.thebbs.org
+
+Here is how to install it: (Assuming that your BBS uses *# as the node macro)
+
+1. Extract the Win32 version of Ambroishia (AMB4031.ZIP) to a directory/folder.
+   (In this example we will assume C:\PB\AMBV4)
+
+2. In your BBS software, configure your door to run a Command Line such as this example:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\amb\amblaunch.exe /n *# /d c:\pb\node*#\door32.sys" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 C:\PB\amb\amblaunch.exe /n 1 /d c:\pb\node1\door.sys"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of parameter 1 like this:
+   c:\netfoss\nfu.exe . "c:\pb\amb\amblaunch.exe /n *# /d c:\pb\node*#\door32.sys" *D
+
+   You can also shorten the second parameter by replacing the path (only) to   
+   c:\netfoss\nfu.exe . "c:\pb\amb\amblaunch.exe /n *# /d ^" *D
+
+
+Pimpwars
+--------
+
+PimpWars is another classic RPG in which you play a pimp. It was updated to Win32 by
+James Coyle of MysticBBS fame.
+
+James left one annoying "feature" from the original game, in which it ignores the ANSI
+graphics setting found in the drop file, and instead asks the user "Use ANSI? (Y/N)"
+when it start up. NFU can automaticlly answer this question, so it's never even seen by
+the user by adding the /YN switch as the third parameter.
+
+Here is how to install it: (Assuming that your BBS uses *# as the node macro)
+
+1. Extract PW_153W.ZIP to a directory/folder. In this example we will assume C:\PB\PIMPWARS)
+
+2. In your BBS software, configure your door to run a Command Line such as this example:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\pimpwars\pimpwars.exe c:\pb\node*#\door32.sys *#" /YN *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\pimpwars\pimpwars.exe c:\pb\node1\door32.sys 1" /YN *D
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of parameter 1 like this:
+   c:\netfoss\nfu.exe . "c:\pb\pimpwars\pimpwars.exe c:\pb\node*#\door32.sys *N" /YN *D
+
+   You can also shorten the second parameter by replacing the path+/DOOR32.SYS with "^":
+   c:\netfoss\nfu.exe . "c:\pb\pimpwars\pimpwars.exe ^ *#" /YN *D
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     126
+
+Jezabel
+-------
+
+Jezabel is an RPG in which you are a virus and battle other malware written by DreamMaster.
+It's available from http://dreamlandbbs.org.
+
+Here is how to install it: (Assuming that your BBS uses *# as the node macro)
+
+1. Extract JZBL25.ZIP to a directory/folder. In this example we will assume C:\pb\jez)
+
+2. In your BBS software, configure your door to run a Command Line such as this example:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\jez\jezw32.exe c:\pb\node*#\door32.sys" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 C:\pb\jez\jezw32.exe c:\pb\node1\door.sys"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of parameter 1 like this:
+   c:\netfoss\nfu.exe . C:\pb\jez\jezw32.exe c:\pb\node*#\door.sys"
+
+   You can also shorten the second parameter by replacing the path+/DOOR32.SYS with "^":   
+   c:\netfoss\nfu.exe . C:\pb\jez\jezw32.exe ^" *D
+
+
+Food Fight 2004
+---------------
+
+Food Fight 2004 was a Win32 remake of the Classic DOS Food Fight door, written by
+Chris Martino. 
+
+
+1. Extract FF2K4V24.ZIP to a directory/folder. In this example we will assume C:\PB\FOOD)
+
+2. In your BBS software, configure your door to run a Command Line such as this example:
+   c:\netfoss\nfu.exe c:\pb\node*# "c:\pb\food\ff2k4.exe -Dc:\pb\node*#\door32.sys" *D
+
+   Note that for node 1, the above command line would be translated by the BBS as so:
+   c:\netfoss\nfu.exe c:\pb\node1 "c:\pb\food\ff2k4.exe -Dc:\pb\node1\door32.sys"
+
+   If your BBS software automaticly sets the current directory as the node's dropfile
+   directory before executing a door, you can shorten the size of parameter 1 like this:
+   c:\netfoss\nfu.exe . "c:\pb\food\ff2k4.exe -Dc:\pb\node*#\door32.sys" *D
+
+   You can also shorten the second parameter by replacing the path+/DOOR32.SYS with "^":   
+   c:\netfoss\nfu.exe . C:\pb\jez\jezw32.exe ^" *D
+
+   (Leave out the *D if not using ProBoard - this tells ProBoard to create a DOOR.SYS)
+
+
+Other Win32 doors that were tested but not found to be worthwhile documenting:
+MyCroft doors: sherlock Holmes, Ficitois Stock Exchange, Steller Quest, U-Boat.
+Atlantis doors: Kentucky Derby, Vegas Slots 
+Tournament Trivia (from DoorMud author)
+KFTO Boxing (
+BBS Simulator (Zoob)
+Usurper - Great classic game but the Win32 version is still in beta and it requires upgrading
+from other versions currently.
+
+
+Win32 doors that appear not to work:
+------------------------------------
+The Online Pub for Windows by Paul Sidorsky only supports Windows COM port handles,
+and not TCP Sockets, so it will not work.
+
+The Telnet Door by Enigma/Dink released with his Citrisoft kit appears to only support
+Windows COM Port handles, and not TCP Sockets, so it will not work.
+
+The Telnet Door by Mercyful Fate will get as far as making a remote connection, but once
+it displays the remote logon screen, it will disconnect (or perhaps the remote BBS
+disconnects due to a telnet negotiation issue).
+If anyone is able to get this to work correctly, please let me know.
+
+The only telnet door that appears to work so far is the one by Rick at R&M, which uses
+settings simular to the one for BBSLink without needing a batch file.
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     127
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³ Setuping up ProBoard with GameSrv					³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+1.)	First thing to do is install ProBoard just like the help/docs in the archive tell you.
+	I believe you just unpack the ZIP into any directory of your choice.  Run the INSTALL.EXE
+	and follow the prompts!
+
+2.)	Next click on the GameSRV setup executable!  However make sure you uncheck the FOSSIL
+	drivers and the DOORS!
+
+3.)	Next install NetFoss 1.X into the same directory you told GameSRV to install into.  However,
+	you have to copy or move NETFOSS.DLL into C:\WINDOWS\SYSTEM32 under Windows XP or higher!
+
+4.)	Now create a RUNBBS.BAT to look just like this:
+
+   @ECHO OFF
+
+    REM IF YOU DID NOT INSTALL INTO C:\GAMESRV THEN YOU WILL HAVE TO CHANGE
+    REM THE THREE LINES BELOW WHICH MAKE REFERENCE TO THAT DIRECTORY
+    REM DO _NOT_ CHANGE ANYTHING ELSE
+    C:
+    C:\GAMESRV\NETFOSS.COM /n%1
+    IF ERRORLEVEL 1 GOTO END
+    C:\GAMESRV\NETCOM.EXE /n%1 /h%2 C:\GAMESRV\BBS.BAT %1
+    C:\GAMESRV\NETFOSS.COM /U
+    :END
+
+5.)	Now edit/create you a BBS.BAT.  It should look like this:
+
+    @ECHO OFF
+
+      REM IF YOU DID NOT INSTALL INTO C:\PB THEN YOU WILL HAVE TO CHANGE
+      REM THE THREE LINES BELOW WHICH MAKE REFERENCE TO THAT DIRECTORY
+      REM DO _NOT_ CHANGE ANYTHING ELSE
+      C:
+      C:\WINDOWS\SYSTEM32\SHARE.EXE /f:4096
+      SET PROBOARD=C:\PB
+      cd\PB\node%1
+      C:\PB\PROBOARD -n%1 -b115200
+      :END
+
+6.)	Now edit GameSRV's General Information Tab under the Configuration Editor...
+
+7.)	Click the SAVE Button!
+
+8.)	Now test it out and see if it works!  Load a program such as SyncTERM, Hyperterminal, Qmodem Pro
+	for Win95/NT, or even mTel32!  Tell any of these programs to connect to your ISP Address, your
+	Domain Name, or Sub-Domain Name.  Which ever one is pointed to your computer with ProBoard and GameSrv
+	on it.  Your IP address will always be pointed to your computer!
+
+9.)	If for some reason you have problem with echo when signing on with one of the programs above, then go
+	into ProCFG and edit the modem Init String for each Node you have, to read this:
+
+	ATH0 S1001=1 S1002=1 S1003=7 S1005=0 S1008=23 &D2H0S0=1|
+
+That should be all you need to install ProBoard with GameSrv and NetFOSS!
+You can download latest version of GameSrv at https://www.randm.ca/
+
+You can also find the latest version of ProBoard on telnet://slasherbbs.com/ or http://proboardbbs.com
+
+GameSrv Copyright © 2019 Rick Parish - R & M Software.
+NetFOSS Copyright © 2019 Mike Ehlert - pcmicro.com
+ProBoard is Copyright © 2019 John Riley, Sr. and rileypcmd.com - rileypcmd.com or slasherbbs.com or proboardbbs.com
+
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+                                     128
 
 ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
                                   # # #
