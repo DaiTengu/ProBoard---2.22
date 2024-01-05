@@ -1,0 +1,29 @@
+!include ..\..\common.mk
+
+# Need to override this
+PB_LIB   = ..
+
+.cpp.obj: 
+  $(CC) @mc.cfg $(CPPFLAGS) -I. -Yo -c { $< }
+
+
+OBJS = TH_BLDKY.OBJ  TH_DSPLY.OBJ  TH_FILE.OBJ   TH_FORM.OBJ   TH_INI.OBJ    TH_PROKY.OBJ \
+       TH_CONV.OBJ   TH_ENV.OBJ    TH_FNAME.OBJ  TH_HFFMN.OBJ  TH_LLIST.OBJ  TH_RECIO.OBJ 
+
+
+all: mc.cfg ..\THEHOUSE.LIB
+
+..\THEHOUSE.LIB: $(OBJS)
+   -@erase $@
+   &$(TLIB) $@ +$?
+
+clean:
+  -@del *.obj
+  -@del mc.cfg
+  -@del THEHOUSE.BAK
+  -@del THEHOUSE.LIB
+  -@del ..\THEHOUSE.BAK
+  -@del ..\THEHOUSE.LIB
+
+!include ..\..\mc.mk
+

@@ -1,0 +1,19 @@
+!include ..\..\common.mk
+
+# Need to override this
+PB_LIB   = ..
+
+PBLIB_OBJS = pb_lib.obj lang.obj user.obj
+
+all: mc.cfg ..\PBLIB_$(EXT).LIB
+
+..\PBLIB_$(EXT).LIB : $(PBLIB_OBJS)
+   -erase $@
+   &$(TLIB) $@ +$?
+
+clean:
+  -@del *.obj
+  -@del mc.cfg
+
+
+!include ..\..\mc.mk

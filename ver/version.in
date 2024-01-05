@@ -1,0 +1,9 @@
+// version.h
+
+#define VERSION       "@FULL_VERSION@"
+#define ARCHIVE_NAME  "@ARCHIVE_NAME@"
+#define VER_NUM       @VER_NUM@
+#define VER_NUM_HEX   @VER_NUM_HEX@ 
+#define VER_DATE      "@VER_DATE@"
+
+// end

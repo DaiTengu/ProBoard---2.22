@@ -1,3 +1,6 @@
+
+#define Uses_MultiRecIO
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -982,7 +985,7 @@ main(int argc,char *argv[])
 
    for(;;)
    {
-      tsw_showfooter("Copyright (c) 1990-2019  ProBoard Development Ninja Team.  All Rights Reserved", BAR_COLOR);
+      tsw_showfooter("Copyright (c) 2019+ ProBoard Development Ninja Team.  All Rights Reserved", BAR_COLOR);
       //tsw_fillrect(1,tsw_vsize-1,tsw_hsize,tsw_vsize-1,'°',0x70);
 
       int choice=menu.process();
@@ -1094,4 +1097,3 @@ main(int argc,char *argv[])
    tsw_cursoron();
    return 0;
 }
-

@@ -1,3 +1,5 @@
+#ifndef INCLUDED_PROCFG_TEMPLATE_H
+#define INCLUDED_PROCFG_TEMPLATE_H
 
 /* ------------------------------------------------------------
  * Filename ............... Template.Hpp
@@ -21,6 +23,12 @@
  */
 
 /*--] Classes [----------------------------------] TemplateIO [------------*/
+
+#define Uses_MultiRecIO
+
+#include <THTYPES.HPP>
+#include <PBTYPES.HPP>
+#include "THCLASS.HPP"
 
 const ShrtT maxTemplates = 256;
 
@@ -51,8 +59,9 @@ struct template_data
 };
 
 _ClassType(TemplateIO)
-class TemplateIO : public template_data, public MultiRecIO
-{
+class TemplateIO : 
+  public template_data, 
+  public MultiRecIO {
 public:
             TemplateIO     (  ChrP path, ChrP fn = "Template.Pb"        );
 
@@ -68,3 +77,5 @@ public:
 extern TemplateIOP tpl;
 
 /*---------------------------] END OF THE CODE [---------------------------*/
+
+#endif  // INCLUDED_PROCFG_TEMPLATE_H

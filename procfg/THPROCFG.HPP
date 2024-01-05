@@ -1,3 +1,5 @@
+#ifndef INCLUDED_PROCFG_THEPROCFG_H
+#define INCLUDED_PROCFG_THEPROCFG_H
 
 /* ------------------------------------------------------------
  * Filename ............... ThProCfg.Hpp
@@ -22,8 +24,10 @@
 
 /*-------------------------------------------------------------------------*/
 
-#include <ProBoard.Hpp>
+#include "../libs/PB/PROBOARD.HPP"
 #include "ProCfg.Hpp"
+#include <THTYPES.HPP>
+#include <PBTYPES.HPP>
 
 /*-------------------------------------------------------------------------*/
 
@@ -164,3 +168,5 @@ void  showHelp       (  ChrP hlp[], char *pTitle=NULL, FlgT center = FALSE      
 /*--] prototypes [---------------------------------------------------------*/
 
 /*---------------------------] END OF THE CODE [---------------------------*/
+
+#endif  // INCLUDED_PROCFG_THEPROCFG_H

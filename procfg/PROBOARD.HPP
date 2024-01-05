@@ -3,10 +3,11 @@
 
 #include <tslib.hpp>
 #include <time.h>
+#include "../ver/version.h"
 
-#define VERSION            "2.22"
-#define TEARVERSION        "2.22"
-#define PID_STRING         "ProBoard 2.22"
+//#define VERSION            "2.22"
+#define TEARVERSION        VERSION
+#define PID_STRING         "ProBoard " VERSION
 #define PID_STRING_HUDSON  PID_STRING " H"
 #define PID_STRING_SQUISH  PID_STRING " S"
 #define PID_STRING_JAM     PID_STRING " J"
@@ -15,7 +16,7 @@
 #define MAX_UNREG_NODES 255
 #define MAX_UNREG_USERS 100000
 
-#define VER_NUM  222
+//#define VER_NUM  222
 
 const word VER_WORD = 0x0220;
 const word VER_BETA = 0xFFFF;   // 0000-EFFF = beta
@@ -701,7 +702,9 @@ struct DownloadFile
       String name;
    };
 
-#include "prompts.hpp"
+// TODO: this is hacky but don't want to accidentally pick up ../proboard/proboard.hpp
+// by putting it on the include path
+#include "../proboard/prompts.hpp"
 
 bool ReadLanguage( char *langname );
 
@@ -709,8 +712,9 @@ char wait_language_hotkeys(char *hk, bool enter = TRUE);
 int  language_string_length( char *str );
 
 
-
-#include "reg.hpp"
+// TODO: this is hacky but don't want to accidentally pick up ../proboard/proboard.hpp
+// by putting it on the include path
+#include "../proboard/reg.hpp"
 
 
 #endif

@@ -1,3 +1,0 @@
-echo Generating source file report
-call clines >>source.rpt
-list source.rpt
